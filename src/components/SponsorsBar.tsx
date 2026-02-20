@@ -1,7 +1,7 @@
 const sponsors = [
   "QuantumTech Labs",
   "National Science Foundation",
-  "IBM Quantum",
+  "VTU Belagavi",
   "Google Quantum AI",
   "Microsoft Azure Quantum",
   "IISER Tirupati",

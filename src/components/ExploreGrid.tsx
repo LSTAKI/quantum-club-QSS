@@ -11,7 +11,7 @@ const cards = [
   {
     icon: Users,
     title: "Team",
-    description: "Meet the passionate student organizers behind QCSS who make this summit possible.",
+    description: "Meet the passionate student organizers behind VTU Quantum Club who make this summit possible.",
     href: "#",
   },
   {
@@ -23,7 +23,7 @@ const cards = [
   {
     icon: Handshake,
     title: "Sponsorship",
-    description: "Partner with QCSS to support the next generation of quantum scientists and innovators.",
+    description: "Partner with VTU Quantum Club to support the next generation of quantum scientists and innovators.",
     href: "#",
   },
 ];
@@ -36,7 +36,7 @@ const ExploreGrid = () => (
           Discover
         </p>
         <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground">
-          Explore QCSS
+          Explore VTU Quantum Club
         </h2>
       </div>
 

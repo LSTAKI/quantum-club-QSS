@@ -19,10 +19,10 @@ const IntroSection = () => (
             <span className="text-gradient-gold">Quantum Innovation</span>
           </h2>
           <p className="text-muted-foreground leading-relaxed mb-4">
-            The Quantum Club Student Summit (QCSS) is a student-run conference that brings together undergraduate researchers, educators, and industry professionals to share breakthroughs in quantum physics, computing, and related sciences.
+            The VTU Quantum Club is a student-run initiative that brings together undergraduate researchers, educators, and industry professionals to share breakthroughs in quantum physics, computing, and related sciences.
           </p>
           <p className="text-muted-foreground leading-relaxed">
-            From poster sessions and keynote talks to hands-on workshops, QCSS creates an immersive environment where the next generation of quantum scientists can present their research, build networks, and spark new collaborations.
+            From poster sessions and keynote talks to hands-on workshops, VTU Quantum Club creates an immersive environment where the next generation of quantum scientists can present their research, build networks, and spark new collaborations.
           </p>
         </motion.div>
 
