@@ -4,7 +4,7 @@ const sponsors = [
   "VTU Belagavi",
   "Google Quantum AI",
   "Microsoft Azure Quantum",
-  "IISER Tirupati",
+  "VTU Belagavi",
   "DST India",
   "Qiskit Community",
 ];

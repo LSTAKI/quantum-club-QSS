@@ -15,7 +15,7 @@ const VenueSection = () => (
         >
           <img
             src={campusImage}
-            alt="IISER Tirupati Campus"
+            alt="VTU Belagavi Campus"
             className="rounded-lg shadow-card object-cover w-full aspect-[4/3]"
           />
         </motion.div>
@@ -33,10 +33,10 @@ const VenueSection = () => (
             Visvesvaraya Technological University
           </h2>
           <p className="text-muted-foreground leading-relaxed mb-4">
-            Visvesvaraya Technological University (VTU) is one of the largest technological universities in India, known for its excellence in engineering and scientific research.
+            Visvesvaraya Technological University (VTU), established on 1 April 1998, is one of the largest technological universities in India. Named after the legendary engineer and statesman Sir M. Visvesvaraya, VTU affiliates over 200 colleges across Karnataka with a motto of "Above all, be human" (Modalu Manavanagu).
           </p>
           <p className="text-muted-foreground leading-relaxed mb-6">
-            Located in Belagavi, Karnataka, VTU fosters a vibrant ecosystem of innovation, research, and academic collaboration across its affiliated institutions.
+            Headquartered in Machhe, Belagavi, Karnataka, VTU offers undergraduate, postgraduate, and doctoral programs in engineering, technology, and allied sciences — driving innovation and academic excellence across the state.
           </p>
           <div className="flex items-center gap-2 text-muted-foreground mb-6">
             <MapPin size={18} className="text-accent" />
