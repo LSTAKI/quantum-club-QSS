@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Mic2, Users, Calendar, Handshake, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const cards = [
   {
@@ -18,7 +19,8 @@ const cards = [
     icon: Calendar,
     title: "Events",
     description: "Workshops, poster sessions, panel discussions, and networking mixers across two exciting days.",
-    href: "#",
+    href: "/events",
+    isRoute: true,
   },
   {
     icon: Handshake,
@@ -41,30 +43,56 @@ const ExploreGrid = () => (
       </div>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {cards.map((card, i) => (
-          <motion.a
-            key={card.title}
-            href={card.href}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="group rounded-lg border border-border bg-card p-6 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1"
-          >
-            <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
-              <card.icon size={24} className="text-accent" />
-            </div>
-            <h3 className="font-heading text-lg font-semibold text-card-foreground mb-2">
-              {card.title}
-            </h3>
-            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-              {card.description}
-            </p>
-            <span className="inline-flex items-center gap-1 text-sm font-medium text-accent group-hover:gap-2 transition-all">
-              Learn More <ArrowRight size={14} />
-            </span>
-          </motion.a>
-        ))}
+        {cards.map((card, i) => {
+          const inner = (
+            <>
+              <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
+                <card.icon size={24} className="text-accent" />
+              </div>
+              <h3 className="font-heading text-lg font-semibold text-card-foreground mb-2">
+                {card.title}
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                {card.description}
+              </p>
+              <span className="inline-flex items-center gap-1 text-sm font-medium text-accent group-hover:gap-2 transition-all">
+                Learn More <ArrowRight size={14} />
+              </span>
+            </>
+          );
+
+          const className = "group rounded-lg border border-border bg-card p-6 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1";
+
+          if ('isRoute' in card && card.isRoute) {
+            return (
+              <motion.div
+                key={card.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+              >
+                <Link to={card.href} className={`block ${className}`}>
+                  {inner}
+                </Link>
+              </motion.div>
+            );
+          }
+
+          return (
+            <motion.a
+              key={card.title}
+              href={card.href}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className={className}
+            >
+              {inner}
+            </motion.a>
+          );
+        })}
       </div>
     </div>
   </section>

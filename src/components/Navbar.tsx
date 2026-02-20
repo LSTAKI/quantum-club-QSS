@@ -1,39 +1,57 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLocation, Link } from "react-router-dom";
 
 const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Speakers", href: "#explore" },
-  { label: "Events", href: "#explore" },
-  { label: "Sponsors", href: "#sponsors" },
-  { label: "Venue", href: "#venue" },
-  { label: "FAQs", href: "#faqs" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/#home", route: "/" },
+  { label: "About", href: "/#about", route: "/" },
+  { label: "Speakers", href: "/#explore", route: "/" },
+  { label: "Events", href: "/events", route: "/events" },
+  { label: "Sponsors", href: "/#sponsors", route: "/" },
+  { label: "Venue", href: "/#venue", route: "/" },
+  { label: "FAQs", href: "/#faqs", route: "/" },
+  { label: "Contact", href: "/#contact", route: "/" },
 ];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const location = useLocation();
+
+  const isActive = (link: typeof navLinks[0]) => location.pathname === link.route && link.route === "/events";
+
+  const renderLink = (l: typeof navLinks[0], className: string, onClick?: () => void) => {
+    if (l.route === "/events") {
+      return (
+        <Link key={l.label} to={l.href} onClick={onClick} className={className}>
+          {l.label}
+        </Link>
+      );
+    }
+    return (
+      <a key={l.label} href={l.href} onClick={onClick} className={className}>
+        {l.label}
+      </a>
+    );
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-navy/95 backdrop-blur-md border-b border-navy-light/30">
       <div className="container flex items-center justify-between h-16">
-        <a href="#home" className="font-heading text-xl font-bold text-navy-foreground tracking-tight">
+        <Link to="/" className="font-heading text-xl font-bold text-navy-foreground tracking-tight">
           VTU <span className="text-gold">Quantum Club</span>
-        </a>
+        </Link>
 
         {/* Desktop */}
         <nav className="hidden lg:flex items-center gap-1">
-          {navLinks.map((l) => (
-            <a
-              key={l.label}
-              href={l.href}
-              className="px-3 py-2 text-sm font-medium text-navy-foreground/80 hover:text-gold transition-colors"
-            >
-              {l.label}
-            </a>
-          ))}
+          {navLinks.map((l) =>
+            renderLink(
+              l,
+              `px-3 py-2 text-sm font-medium transition-colors ${
+                isActive(l) ? "text-gold border-b-2 border-gold" : "text-navy-foreground/80 hover:text-gold"
+              }`
+            )
+          )}
           <Button variant="gold" size="sm" className="ml-4">
             Register Now
           </Button>
@@ -52,16 +70,15 @@ const Navbar = () => {
       {/* Mobile menu */}
       {open && (
         <nav className="lg:hidden bg-navy border-t border-navy-light/30 pb-4">
-          {navLinks.map((l) => (
-            <a
-              key={l.label}
-              href={l.href}
-              onClick={() => setOpen(false)}
-              className="block px-6 py-3 text-sm text-navy-foreground/80 hover:text-gold transition-colors"
-            >
-              {l.label}
-            </a>
-          ))}
+          {navLinks.map((l) =>
+            renderLink(
+              l,
+              `block px-6 py-3 text-sm transition-colors ${
+                isActive(l) ? "text-gold font-semibold" : "text-navy-foreground/80 hover:text-gold"
+              }`,
+              () => setOpen(false)
+            )
+          )}
           <div className="px-6 pt-2">
             <Button variant="gold" size="sm" className="w-full">
               Register Now
