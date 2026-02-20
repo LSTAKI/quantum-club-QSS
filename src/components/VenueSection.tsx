@@ -30,21 +30,21 @@ const VenueSection = () => (
             Host Institution
           </p>
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">
-            IISER Tirupati
+            Visvesvaraya Technological University
           </h2>
           <p className="text-muted-foreground leading-relaxed mb-4">
-            The Indian Institute of Science Education and Research (IISER) Tirupati is a premier research institution known for its cutting-edge work in the physical and biological sciences.
+            Visvesvaraya Technological University (VTU) is one of the largest technological universities in India, known for its excellence in engineering and scientific research.
           </p>
           <p className="text-muted-foreground leading-relaxed mb-6">
-            Nestled in the scenic landscape of Andhra Pradesh, the campus provides a stimulating environment for academic exchange and collaborative research.
+            Located in Belagavi, Karnataka, VTU fosters a vibrant ecosystem of innovation, research, and academic collaboration across its affiliated institutions.
           </p>
           <div className="flex items-center gap-2 text-muted-foreground mb-6">
             <MapPin size={18} className="text-accent" />
-            <span className="text-sm">Tirupati, Andhra Pradesh, India</span>
+            <span className="text-sm">Belagavi, Karnataka, India</span>
           </div>
           <Button variant="default" size="default">
             <ExternalLink size={16} className="mr-2" />
-            Visit IISER Tirupati
+            Visit VTU
           </Button>
         </motion.div>
       </div>

@@ -23,10 +23,10 @@ const Footer = () => (
         {/* Brand */}
         <div>
           <h3 className="font-heading text-2xl font-bold mb-2">
-            QCSS <span className="text-gold">2025</span>
+            VTU <span className="text-gold">Quantum Club</span>
           </h3>
           <p className="text-sm text-navy-foreground/60 leading-relaxed">
-            Quantum Club Student Summit — A student-led initiative fostering undergraduate research and collaboration in quantum sciences.
+            VTU Quantum Club — A student-led initiative fostering undergraduate research and collaboration in quantum sciences at Visvesvaraya Technological University.
           </p>
         </div>
 
@@ -57,12 +57,12 @@ const Footer = () => (
           <div className="space-y-3 text-sm text-navy-foreground/60">
             <div className="flex items-center gap-2">
               <Mail size={16} className="text-gold" />
-              <a href="mailto:qcss@iisertirupati.ac.in" className="hover:text-gold transition-colors">
-                qcss@iisertirupati.ac.in
+              <a href="mailto:quantumclub@vtu.ac.in" className="hover:text-gold transition-colors">
+                quantumclub@vtu.ac.in
               </a>
             </div>
             <p>Public Relations Team</p>
-            <p>IISER Tirupati, Andhra Pradesh, India</p>
+            <p>VTU, Belagavi, Karnataka, India</p>
           </div>
 
           <div className="flex gap-3 mt-6">
@@ -83,7 +83,7 @@ const Footer = () => (
 
     <div className="border-t border-navy-foreground/10">
       <div className="container py-6 text-center text-xs text-navy-foreground/40">
-        © 2025 Quantum Club Student Summit. All rights reserved.
+        © 2025 VTU Quantum Club. All rights reserved.
       </div>
     </div>
   </footer>
