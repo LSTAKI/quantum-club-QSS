@@ -66,19 +66,6 @@ const HeroSection = () => (
         </div>
       </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.6 }}
-        className="flex flex-col sm:flex-row gap-4 justify-center"
-      >
-        <Button variant="gold" size="lg">
-          Join as an Attendee
-        </Button>
-        <Button variant="hero-outline" size="lg">
-          Learn More
-        </Button>
-      </motion.div>
     </div>
   </section>
 );
