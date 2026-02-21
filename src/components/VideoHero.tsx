@@ -28,7 +28,7 @@ const VideoHero = () => (
         transition={{ duration: 0.7, delay: 0.15 }}
         className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-4"
       >
-        Quantum Summit 2025
+        Quantum Student Summit
       </motion.h1>
       <motion.p
         initial={{ opacity: 0, y: 20 }}
