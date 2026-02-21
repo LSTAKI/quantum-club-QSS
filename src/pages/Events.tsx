@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import VideoHero from "@/components/VideoHero";
+import SpeakersSection from "@/components/SpeakersSection";
+import TeamSection from "@/components/TeamSection";
 
-import eventsHero from "@/assets/events-hero.jpg";
 import poster1 from "@/assets/poster-1.jpg";
 import poster2 from "@/assets/poster-2.jpg";
 import poster3 from "@/assets/poster-3.jpg";
@@ -27,38 +30,14 @@ const panelists = [
   { name: "Dr. Vijay Kumar", affiliation: "VTU Belagavi, Applied Physics" },
 ];
 
+const REGISTER_URL = "#";
+
 const Events = () => (
   <div className="min-h-screen">
     <Navbar />
 
-    {/* Hero */}
-    <section className="relative h-[50vh] md:h-[60vh] flex items-center justify-center overflow-hidden">
-      <img
-        src={eventsHero}
-        alt="Quantum Summit conference hall"
-        className="absolute inset-0 w-full h-full object-cover"
-        loading="eager"
-      />
-      <div className="absolute inset-0" style={{ background: "var(--hero-overlay)" }} />
-      <div className="relative z-10 container text-center text-navy-foreground">
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-sm md:text-base font-medium tracking-[0.3em] uppercase text-gold mb-3"
-        >
-          Quantum Summit 2025
-        </motion.p>
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.15 }}
-          className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight"
-        >
-          Events & Sessions
-        </motion.h1>
-      </div>
-    </section>
+    {/* Video Advertisement Hero */}
+    <VideoHero />
 
     {/* Poster Presentations — text left, images right */}
     <section className="py-20 md:py-28 bg-background">
@@ -74,9 +53,14 @@ const Events = () => (
             <p className="text-muted-foreground leading-relaxed mb-4">
               Step into our poster hall where undergraduate researchers showcase their quantum science discoveries in an intimate, interactive setting. Engage directly with presenters, ask questions, and explore cutting-edge student research across quantum computing, quantum optics, and condensed matter physics.
             </p>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed mb-6">
               This session is designed for meaningful one-on-one conversations, fostering networking opportunities between students, faculty mentors, and industry professionals.
             </p>
+            <a href={REGISTER_URL} target="_blank" rel="noopener noreferrer">
+              <Button variant="gold" size="lg">
+                Register Now
+              </Button>
+            </a>
           </motion.div>
 
           <motion.div
@@ -92,7 +76,7 @@ const Events = () => (
       </div>
     </section>
 
-    {/* Student Talks — images left, text right (zig-zag) */}
+    {/* Student Talks — images left, text right */}
     <section className="py-20 md:py-28 bg-surface">
       <div className="container">
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -153,7 +137,7 @@ const Events = () => (
       </div>
     </section>
 
-    {/* Panel Discussion — images left, text right (zig-zag) */}
+    {/* Panel Discussion — images left, text right */}
     <section className="py-20 md:py-28 bg-surface">
       <div className="container">
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -193,6 +177,12 @@ const Events = () => (
         </div>
       </div>
     </section>
+
+    {/* Speakers */}
+    <SpeakersSection />
+
+    {/* Team */}
+    <TeamSection />
 
     <Footer />
   </div>

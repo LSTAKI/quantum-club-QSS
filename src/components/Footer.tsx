@@ -3,11 +3,9 @@ import { Instagram, Linkedin, Twitter, Mail } from "lucide-react";
 const quickLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
-  { label: "Speakers", href: "#explore" },
-  { label: "Events", href: "#explore" },
-  { label: "Sponsors", href: "#sponsors" },
+  { label: "Explore", href: "#explore" },
+  { label: "Events", href: "/events" },
   { label: "Venue", href: "#venue" },
-  { label: "Contact", href: "#contact" },
 ];
 
 const socials = [

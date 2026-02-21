@@ -6,12 +6,9 @@ import { useLocation, Link } from "react-router-dom";
 const navLinks = [
   { label: "Home", href: "/#home", route: "/" },
   { label: "About", href: "/#about", route: "/" },
-  { label: "Speakers", href: "/#explore", route: "/" },
+  { label: "Explore", href: "/#explore", route: "/" },
   { label: "Events", href: "/events", route: "/events" },
-  { label: "Sponsors", href: "/#sponsors", route: "/" },
   { label: "Venue", href: "/#venue", route: "/" },
-  { label: "FAQs", href: "/#faqs", route: "/" },
-  { label: "Contact", href: "/#contact", route: "/" },
 ];
 
 const Navbar = () => {
@@ -52,9 +49,6 @@ const Navbar = () => {
               }`
             )
           )}
-          <Button variant="gold" size="sm" className="ml-4">
-            Register Now
-          </Button>
         </nav>
 
         {/* Mobile toggle */}
@@ -79,11 +73,6 @@ const Navbar = () => {
               () => setOpen(false)
             )
           )}
-          <div className="px-6 pt-2">
-            <Button variant="gold" size="sm" className="w-full">
-              Register Now
-            </Button>
-          </div>
         </nav>
       )}
     </header>
