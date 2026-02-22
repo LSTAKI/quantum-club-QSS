@@ -6,8 +6,9 @@ import { useLocation, Link } from "react-router-dom";
 const navLinks = [
   { label: "Home", href: "/#home", route: "/" },
   { label: "About", href: "/#about", route: "/" },
-  { label: "Explore", href: "/#explore", route: "/" },
   { label: "Events", href: "/events", route: "/events" },
+  { label: "Speakers", href: "/speakers", route: "/speakers" },
+  { label: "Team", href: "/team", route: "/team" },
   { label: "Venue", href: "/#venue", route: "/" },
 ];
 
@@ -15,10 +16,10 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
 
-  const isActive = (link: typeof navLinks[0]) => location.pathname === link.route && link.route === "/events";
+  const isActive = (link: typeof navLinks[0]) => location.pathname === link.route && link.route !== "/";
 
   const renderLink = (l: typeof navLinks[0], className: string, onClick?: () => void) => {
-    if (l.route === "/events") {
+    if (l.route !== "/") {
       return (
         <Link key={l.label} to={l.href} onClick={onClick} className={className}>
           {l.label}
