@@ -3,6 +3,10 @@ import team1 from "@/assets/team-1.jpg";
 import team2 from "@/assets/team-2.jpg";
 import team3 from "@/assets/team-3.jpg";
 import team4 from "@/assets/team-4.jpg";
+import team5 from "@/assets/team-5.jpg";
+import team6 from "@/assets/team-6.jpg";
+import team7 from "@/assets/team-7.jpg";
+import team8 from "@/assets/team-8.jpg";
 
 const team = [
   {
@@ -28,6 +32,30 @@ const team = [
     role: "Outreach & PR Coordinator",
     quote: "Connecting minds across campuses for quantum collaboration.",
     image: team4,
+  },
+  {
+    name: "Karthik Nair",
+    role: "Research & Documentation Lead",
+    quote: "Every experiment tells a story worth sharing.",
+    image: team5,
+  },
+  {
+    name: "Sneha Joshi",
+    role: "Design & Media Head",
+    quote: "Making quantum science visually compelling for everyone.",
+    image: team6,
+  },
+  {
+    name: "Aditya Hegde",
+    role: "Logistics & Operations Lead",
+    quote: "Seamless events are built on meticulous planning.",
+    image: team7,
+  },
+  {
+    name: "Divya Rao",
+    role: "Sponsorship & Finance Coordinator",
+    quote: "Turning partnerships into possibilities for students.",
+    image: team8,
   },
 ];
 
