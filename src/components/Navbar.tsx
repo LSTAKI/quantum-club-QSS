@@ -9,7 +9,7 @@ const navLinks = [
   { label: "Events", href: "/events", route: "/events" },
   { label: "Speakers", href: "/speakers", route: "/speakers" },
   { label: "Team", href: "/team", route: "/team" },
-  { label: "Venue", href: "/#venue", route: "/" },
+  
 ];
 
 const Navbar = () => {
