@@ -77,35 +77,6 @@ const Events = () => (
       </div>
     </section>
 
-    {/* Student Talks — images left, text right */}
-    <section className="py-20 md:py-28 bg-surface">
-      <div className="container">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <motion.div
-            {...fadeUp}
-            className="grid grid-cols-2 gap-3 h-[360px] order-2 md:order-1"
-          >
-            <img src={talk1} alt="Student speaking at podium" className="col-span-1 row-span-2 rounded-lg object-cover w-full h-full shadow-card" />
-            <img src={talk2} alt="Student presenter with slides" className="col-span-1 row-span-2 rounded-lg object-cover w-full h-full shadow-card" />
-          </motion.div>
-
-          <motion.div {...fadeUp} transition={{ duration: 0.6, delay: 0.15 }} className="order-1 md:order-2">
-            <p className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-3">
-              Spotlight
-            </p>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Student Talks
-            </h2>
-            <p className="text-muted-foreground leading-relaxed mb-4">
-              A platform for emerging quantum researchers to present their bold ideas and novel findings to a live audience. These talks shine a spotlight on undergraduate talent pushing the boundaries of quantum science.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              From quantum error correction to entanglement-based communication protocols, student talks cover the full spectrum of contemporary quantum research — delivered with passion and precision.
-            </p>
-          </motion.div>
-        </div>
-      </div>
-    </section>
 
     {/* Plenary Talks — text left, images right */}
     <section className="py-20 md:py-28 bg-background">
