@@ -3,8 +3,6 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import VideoHero from "@/components/VideoHero";
-import SpeakersSection from "@/components/SpeakersSection";
-import TeamSection from "@/components/TeamSection";
 
 import poster1 from "@/assets/poster-1.jpg";
 import poster2 from "@/assets/poster-2.jpg";
@@ -53,8 +51,11 @@ const Events = () => (
             <p className="text-muted-foreground leading-relaxed mb-4">
               Step into our poster hall where undergraduate researchers showcase their quantum science discoveries in an intimate, interactive setting. Engage directly with presenters, ask questions, and explore cutting-edge student research across quantum computing, quantum optics, and condensed matter physics.
             </p>
-            <p className="text-muted-foreground leading-relaxed mb-6">
+            <p className="text-muted-foreground leading-relaxed mb-4">
               This session is designed for meaningful one-on-one conversations, fostering networking opportunities between students, faculty mentors, and industry professionals.
+            </p>
+            <p className="text-sm font-semibold text-foreground mb-6">
+              Team Size: Up to 2 members
             </p>
             <a href={REGISTER_URL} target="_blank" rel="noopener noreferrer">
               <Button variant="gold" size="lg">
@@ -178,11 +179,51 @@ const Events = () => (
       </div>
     </section>
 
-    {/* Speakers */}
-    <SpeakersSection />
+    {/* Qubitathon */}
+    <section className="py-20 md:py-28 bg-background">
+      <div className="container">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <motion.div {...fadeUp}>
+            <p className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-3">
+              Ideathon
+            </p>
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">
+              Qubitathon
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              A quantum-themed ideathon where industry professionals present real-world challenges, and student teams brainstorm innovative solutions. Teams must develop a compelling idea and build a simple working prototype within the event timeframe.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              This is your chance to think big, collaborate under pressure, and showcase your problem-solving skills to industry leaders and academic mentors.
+            </p>
+            <p className="text-sm font-semibold text-foreground mb-6">
+              Team Size: 3–4 members (compulsory)
+            </p>
+            <a href={REGISTER_URL} target="_blank" rel="noopener noreferrer">
+              <Button variant="gold" size="lg">
+                Register Now
+              </Button>
+            </a>
+          </motion.div>
 
-    {/* Team */}
-    <TeamSection />
+          <motion.div
+            {...fadeUp}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="flex items-center justify-center"
+          >
+            <div className="w-full max-w-md aspect-square rounded-2xl bg-accent/5 border border-accent/20 flex flex-col items-center justify-center p-8 text-center">
+              <div className="w-20 h-20 rounded-full bg-gold/10 flex items-center justify-center mb-6">
+                <span className="text-4xl">💡</span>
+              </div>
+              <h3 className="font-heading text-2xl font-bold text-foreground mb-2">Think. Build. Present.</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                Industry-sourced problem statements · Team brainstorming · Prototype demo · Expert judging panel
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
 
     <Footer />
   </div>
