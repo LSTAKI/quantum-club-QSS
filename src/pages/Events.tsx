@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import VideoHero from "@/components/VideoHero";
+import EventsHero from "@/components/EventsHero";
 
 import poster1 from "@/assets/poster-1.jpg";
 import poster2 from "@/assets/poster-2.jpg";
@@ -35,7 +35,7 @@ const Events = () => (
     <Navbar />
 
     {/* Video Advertisement Hero */}
-    <VideoHero />
+    <EventsHero />
 
     {/* Poster Presentations — text left, images right */}
     <section className="py-20 md:py-28 bg-background">
