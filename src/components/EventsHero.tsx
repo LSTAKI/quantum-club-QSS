@@ -31,7 +31,7 @@ const TextWallRow = ({ reverse, offset }: { reverse?: boolean; offset?: number }
       <span
         key={i}
         className="text-[4rem] md:text-[6rem] lg:text-[8rem] font-heading font-bold uppercase select-none"
-        style={{ color: "hsla(270, 60%, 80%, 0.07)" }}
+        style={{ color: "hsla(210, 60%, 80%, 0.07)" }}
       >
         {word}
       </span>
@@ -53,7 +53,7 @@ const EventsHero = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{
         background:
-          "linear-gradient(135deg, hsl(270, 60%, 12%) 0%, hsl(280, 50%, 18%) 40%, hsl(260, 55%, 22%) 70%, hsl(270, 60%, 10%) 100%)",
+          "linear-gradient(135deg, hsl(213, 80%, 8%) 0%, hsl(210, 70%, 14%) 40%, hsl(215, 65%, 18%) 70%, hsl(213, 80%, 6%) 100%)",
       }}
     >
       <div className="absolute inset-0 flex flex-col justify-center gap-0 pointer-events-none overflow-hidden -rotate-12 scale-125">
@@ -69,7 +69,7 @@ const EventsHero = () => {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 60% 50% at 50% 50%, hsla(270, 60%, 15%, 0.9) 0%, transparent 70%)",
+            "radial-gradient(ellipse 60% 50% at 50% 50%, hsla(213, 70%, 12%, 0.9) 0%, transparent 70%)",
         }}
       />
 
@@ -79,7 +79,7 @@ const EventsHero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-sm md:text-base font-medium tracking-[0.35em] uppercase mb-6"
-          style={{ color: "hsla(270, 80%, 80%, 0.8)" }}
+          style={{ color: "hsla(210, 80%, 80%, 0.8)" }}
         >
           What Awaits You
         </motion.p>
@@ -104,7 +104,7 @@ const EventsHero = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-base md:text-lg max-w-xl mx-auto mt-6 mb-10"
-          style={{ color: "hsla(270, 30%, 85%, 0.7)" }}
+          style={{ color: "hsla(210, 30%, 85%, 0.7)" }}
         >
           Talks · Competitions · Panels · Networking
         </motion.p>
@@ -115,7 +115,7 @@ const EventsHero = () => {
           transition={{ duration: 0.8, delay: 0.7 }}
           className="animate-bounce"
         >
-          <span style={{ color: "hsla(270, 50%, 75%, 0.5)" }} className="text-sm">
+          <span style={{ color: "hsla(210, 50%, 75%, 0.5)" }} className="text-sm">
             Scroll to explore ↓
           </span>
         </motion.div>
