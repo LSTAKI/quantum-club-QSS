@@ -28,7 +28,7 @@ const panelists = [
   { name: "Dr. Vijay Kumar", affiliation: "VTU Belagavi, Applied Physics" },
 ];
 
-const REGISTER_URL = "#";
+const REGISTER_URL = "https://konfhub.com/";
 
 const Events = () => (
   <div className="min-h-screen">
