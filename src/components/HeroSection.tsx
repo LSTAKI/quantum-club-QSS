@@ -1,16 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
-const SCROLL_WORDS = [
-  "Posters",
-  "Plenary Talks",
-  "Panel Discussion",
-  "Qubitathon",
-  "Quantum Science",
-  "Research",
-  "Innovation",
-  "Collaboration",
-];
+import heroVideo from "@/assets/hero-quantum.mp4";
 
 const HEADLINES = [
   "Quantum Student Summit",
@@ -18,26 +8,6 @@ const HEADLINES = [
   "The Future is Quantum",
   "Where Science Meets Ambition",
 ];
-
-const TextWallRow = ({ reverse, offset }: { reverse?: boolean; offset?: number }) => (
-  <div
-    className="whitespace-nowrap flex gap-8 md:gap-12"
-    style={{
-      animation: `${reverse ? "scroll-wall-reverse" : "scroll-wall"} 25s linear infinite`,
-      animationDelay: `${offset || 0}s`,
-    }}
-  >
-    {[...SCROLL_WORDS, ...SCROLL_WORDS, ...SCROLL_WORDS].map((word, i) => (
-      <span
-        key={i}
-        className="text-[4rem] md:text-[6rem] lg:text-[8rem] font-heading font-bold uppercase select-none"
-        style={{ color: "hsla(210, 60%, 80%, 0.07)" }}
-      >
-        {word}
-      </span>
-    ))}
-  </div>
-);
 
 const HeroSection = () => {
   const [headlineIdx, setHeadlineIdx] = useState(0);
@@ -53,27 +23,33 @@ const HeroSection = () => {
     <section
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{
-        background:
-          "linear-gradient(135deg, hsl(213, 80%, 8%) 0%, hsl(210, 70%, 14%) 40%, hsl(215, 65%, 18%) 70%, hsl(213, 80%, 6%) 100%)",
-      }}
     >
-      {/* Scrolling text wall */}
-      <div className="absolute inset-0 flex flex-col justify-center gap-0 pointer-events-none overflow-hidden -rotate-12 scale-125 opacity-100">
-        <TextWallRow />
-        <TextWallRow reverse offset={-5} />
-        <TextWallRow offset={-10} />
-        <TextWallRow reverse offset={-15} />
-        <TextWallRow offset={-20} />
-        <TextWallRow reverse offset={-8} />
-      </div>
+      {/* Video background */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src={heroVideo} type="video/mp4" />
+      </video>
 
-      {/* Radial glow */}
+      {/* Dark overlay for readability */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(135deg, hsla(213, 80%, 8%, 0.75) 0%, hsla(210, 70%, 14%, 0.6) 40%, hsla(215, 65%, 18%, 0.65) 70%, hsla(213, 80%, 6%, 0.8) 100%)",
+        }}
+      />
+
+      {/* Radial vignette */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 60% 50% at 50% 50%, hsla(213, 70%, 12%, 0.9) 0%, transparent 70%)",
+            "radial-gradient(ellipse 60% 50% at 50% 50%, transparent 0%, hsla(213, 80%, 6%, 0.5) 100%)",
         }}
       />
 
