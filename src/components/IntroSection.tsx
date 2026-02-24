@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 import introImage from "@/assets/intro-image.jpg";
+
+const REGISTER_URL = "https://konfhub.com/";
 
 const IntroSection = () => (
   <section id="about" className="py-24 bg-background">
@@ -21,9 +24,14 @@ const IntroSection = () => (
           <p className="text-muted-foreground leading-relaxed mb-4">
             The VTU Quantum Club is a student-run initiative that brings together undergraduate researchers, educators, and industry professionals to share breakthroughs in quantum physics, computing, and related sciences.
           </p>
-          <p className="text-muted-foreground leading-relaxed">
+          <p className="text-muted-foreground leading-relaxed mb-6">
             From poster sessions and keynote talks to hands-on workshops, VTU Quantum Club creates an immersive environment where the next generation of quantum scientists can present their research, build networks, and spark new collaborations.
           </p>
+          <a href={REGISTER_URL} target="_blank" rel="noopener noreferrer">
+            <Button variant="gold" size="lg">
+              Register Now
+            </Button>
+          </a>
         </motion.div>
 
         <motion.div
