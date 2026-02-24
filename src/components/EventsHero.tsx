@@ -1,16 +1,6 @@
-import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence, useMotionValue, useTransform } from "framer-motion";
-
-const SCROLL_WORDS = [
-  "Poster Presentations",
-  "Qubitathon",
-  "Plenary Talks",
-  "Panel Discussion",
-  "Workshops",
-  "Networking",
-  "Demos",
-  "Research",
-];
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import eventsVideo from "@/assets/events-quantum.mp4";
 
 const HEADLINES = [
   "Summit Events",
@@ -19,87 +9,8 @@ const HEADLINES = [
   "Shape the Quantum Future",
 ];
 
-/* Floating particle */
-const Particle = ({ delay, size, x, y, duration }: { delay: number; size: number; x: string; y: string; duration: number }) => (
-  <motion.div
-    className="absolute rounded-full"
-    style={{
-      width: size,
-      height: size,
-      left: x,
-      top: y,
-      background: "radial-gradient(circle, hsla(199, 89%, 48%, 0.4), transparent 70%)",
-    }}
-    initial={{ opacity: 0, scale: 0 }}
-    animate={{
-      opacity: [0, 0.6, 0.3, 0.6, 0],
-      scale: [0.5, 1.2, 0.8, 1.1, 0.5],
-      y: [0, -40, -20, -60, -80],
-    }}
-    transition={{ duration, delay, repeat: Infinity, ease: "easeInOut" }}
-  />
-);
-
-const PARTICLES = [
-  { delay: 0, size: 6, x: "15%", y: "70%", duration: 6 },
-  { delay: 1.2, size: 4, x: "80%", y: "60%", duration: 7 },
-  { delay: 2.5, size: 8, x: "45%", y: "80%", duration: 5 },
-  { delay: 0.8, size: 3, x: "25%", y: "40%", duration: 8 },
-  { delay: 3.0, size: 5, x: "70%", y: "50%", duration: 6 },
-  { delay: 1.8, size: 7, x: "55%", y: "30%", duration: 7 },
-  { delay: 0.5, size: 4, x: "90%", y: "75%", duration: 5 },
-  { delay: 2.0, size: 6, x: "10%", y: "25%", duration: 8 },
-  { delay: 3.5, size: 3, x: "35%", y: "55%", duration: 6 },
-  { delay: 1.0, size: 5, x: "60%", y: "85%", duration: 7 },
-];
-
-const TextWallRow = ({ reverse, offset }: { reverse?: boolean; offset?: number }) => (
-  <div
-    className="whitespace-nowrap flex gap-8 md:gap-12"
-    style={{
-      animation: `${reverse ? "scroll-wall-reverse" : "scroll-wall"} 25s linear infinite`,
-      animationDelay: `${offset || 0}s`,
-    }}
-  >
-    {[...SCROLL_WORDS, ...SCROLL_WORDS, ...SCROLL_WORDS].map((word, i) => (
-      <span
-        key={i}
-        className="text-[4rem] md:text-[6rem] lg:text-[8rem] font-heading font-bold uppercase select-none"
-        style={{ color: "hsla(210, 60%, 80%, 0.07)" }}
-      >
-        {word}
-      </span>
-    ))}
-  </div>
-);
-
-/* Animated orbiting ring */
-const OrbitRing = ({ size, duration, delay, opacity }: { size: number; duration: number; delay: number; opacity: number }) => (
-  <motion.div
-    className="absolute rounded-full border pointer-events-none"
-    style={{
-      width: size,
-      height: size,
-      left: "50%",
-      top: "50%",
-      marginLeft: -size / 2,
-      marginTop: -size / 2,
-      borderColor: `hsla(199, 89%, 48%, ${opacity})`,
-    }}
-    initial={{ rotate: 0, scale: 0.8, opacity: 0 }}
-    animate={{ rotate: 360, scale: [0.8, 1.05, 0.95, 1], opacity: [0, opacity, opacity, 0] }}
-    transition={{ duration, delay, repeat: Infinity, ease: "linear" }}
-  />
-);
-
 const EventsHero = () => {
   const [headlineIdx, setHeadlineIdx] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  const glowX = useTransform(mouseX, (v) => `${v}px`);
-  const glowY = useTransform(mouseY, (v) => `${v}px`);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -108,61 +19,34 @@ const EventsHero = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    mouseX.set(e.clientX - rect.left);
-    mouseY.set(e.clientY - rect.top);
-  };
-
   return (
-    <section
-      ref={containerRef}
-      onMouseMove={handleMouseMove}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{
-        background:
-          "linear-gradient(135deg, hsl(213, 80%, 8%) 0%, hsl(210, 70%, 14%) 40%, hsl(215, 65%, 18%) 70%, hsl(213, 80%, 6%) 100%)",
-      }}
-    >
-      {/* Mouse-following glow */}
-      <motion.div
-        className="absolute pointer-events-none w-[500px] h-[500px] rounded-full"
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Video background */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src={eventsVideo} type="video/mp4" />
+      </video>
+
+      {/* Dark overlay */}
+      <div
+        className="absolute inset-0"
         style={{
-          left: glowX,
-          top: glowY,
-          x: "-50%",
-          y: "-50%",
-          background: "radial-gradient(circle, hsla(199, 89%, 48%, 0.08) 0%, transparent 70%)",
+          background:
+            "linear-gradient(135deg, hsla(213, 80%, 8%, 0.75) 0%, hsla(210, 70%, 14%, 0.6) 40%, hsla(215, 65%, 18%, 0.65) 70%, hsla(213, 80%, 6%, 0.8) 100%)",
         }}
       />
 
-      {/* Scrolling text wall */}
-      <div className="absolute inset-0 flex flex-col justify-center gap-0 pointer-events-none overflow-hidden -rotate-12 scale-125">
-        <TextWallRow />
-        <TextWallRow reverse offset={-5} />
-        <TextWallRow offset={-10} />
-        <TextWallRow reverse offset={-15} />
-        <TextWallRow offset={-20} />
-        <TextWallRow reverse offset={-8} />
-      </div>
-
-      {/* Floating particles */}
-      {PARTICLES.map((p, i) => (
-        <Particle key={i} {...p} />
-      ))}
-
-      {/* Orbit rings */}
-      <OrbitRing size={300} duration={20} delay={0} opacity={0.06} />
-      <OrbitRing size={500} duration={30} delay={2} opacity={0.04} />
-      <OrbitRing size={700} duration={40} delay={4} opacity={0.03} />
-
-      {/* Center vignette */}
+      {/* Radial vignette */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 60% 50% at 50% 50%, hsla(213, 70%, 12%, 0.9) 0%, transparent 70%)",
+            "radial-gradient(ellipse 60% 50% at 50% 50%, transparent 0%, hsla(213, 80%, 6%, 0.5) 100%)",
         }}
       />
 
