@@ -15,7 +15,7 @@ const faculty = [
     name: "Dr. R. H. Goudar",
     role: "Faculty Coordinator",
   
-    image: facultyCoordinator,
+    image: "https://vtu.ac.in/wp-content/uploads/2020/01/rhg.jpg",
   },
   {
     name: "Dr. Harish B",
