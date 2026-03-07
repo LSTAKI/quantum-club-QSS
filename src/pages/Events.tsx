@@ -43,8 +43,8 @@ const panelists = [
 
 const POSTER_REGISTER_URL = "https://konfhub.com/poster";
 const QUBITATHON_REGISTER_URL = "https://konfhub.com/qubitathon";
-const POSTER_TOPICS_URL = "https://drive.google.com/poster-topics-placeholder";
-const QUBITATHON_TOPICS_URL = "https://drive.google.com/qubitathon-topics-placeholder";
+const POSTER_TOPICS_URL = "https://drive.google.com/file/d/1xPGZaed0q4Jh4riwVOPLc7X4YxJ_TIu4/view?usp=sharing";
+const QUBITATHON_TOPICS_URL = "https://drive.google.com/file/d/1xPGZaed0q4Jh4riwVOPLc7X4YxJ_TIu4/view?usp=sharing";
 
 /* Animated section divider */
 const SectionDivider = () => (
