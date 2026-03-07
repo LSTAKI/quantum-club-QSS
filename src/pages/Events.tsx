@@ -34,11 +34,11 @@ const scaleIn = {
 };
 
 const panelists = [
-  { name: "Dr. Anil Kumar", affiliation: "IISc Bangalore, Dept. of Physics" },
-  { name: "Dr. Priya Natarajan", affiliation: "IIT Madras, Quantum Computing Lab" },
-  { name: "Dr. Rajesh Gopakumar", affiliation: "ICTS-TIFR, Theoretical Sciences" },
-  { name: "Dr. Sanhita Sinharay", affiliation: "IISc Bangalore, Molecular Sciences" },
-  { name: "Dr. Vijay Kumar", affiliation: "VTU Belagavi, Applied Physics" },
+  { name: "To be updated", affiliation: "To be updated" },
+  { name: "To be updated", affiliation: "To be updated" },
+  { name: "To be updated", affiliation: "To be updated" },
+  { name: "To be updated", affiliation: "To be updated" },
+  { name: "To be updated", affiliation: "To be updated" },
 ];
 
 const REGISTER_URL = "https://konfhub.com/";
@@ -193,7 +193,7 @@ const Events = () => (
           >
             <GlowImage
               src={panelImg}
-              alt="Panel discussion at the summit"
+              alt="Panel discussion at the summit."
               className="w-full aspect-[4/3] shadow-card"
             />
           </motion.div>
@@ -219,7 +219,7 @@ const Events = () => (
             </motion.p>
             <motion.h3
               {...staggerItem}
-              className="font-heading text-lg font-semibold text-foreground mb-3"
+              className="font-heading text-lg font-semibold text-foreground mb-3."
             >
               Panelists
             </motion.h3>
@@ -290,7 +290,7 @@ const Events = () => (
           <motion.div
             {...scaleIn}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="flex items-center justify-center"
+            className="flex items-center justify-center."
           >
             <motion.div
               className="w-full max-w-md aspect-square rounded-2xl flex flex-col items-center justify-center p-8 text-center relative overflow-hidden"
