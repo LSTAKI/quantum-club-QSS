@@ -7,6 +7,23 @@ import team5 from "@/assets/team-5.jpg";
 import team6 from "@/assets/team-6.jpg";
 import team7 from "@/assets/team-7.jpg";
 import team8 from "@/assets/team-8.jpg";
+import facultyCoordinator from "@/assets/team-faculty-coordinator.jpg";
+import facultyAdvisor from "@/assets/team-faculty-advisor.jpg";
+
+const faculty = [
+  {
+    name: "To be updated",
+    role: "Faculty Coordinator",
+    quote: "To be updated",
+    image: facultyCoordinator,
+  },
+  {
+    name: "To be updated",
+    role: "Faculty Advisor",
+    quote: "To be updated",
+    image: facultyAdvisor,
+  },
+];
 
 const team = [
   {
@@ -62,6 +79,45 @@ const team = [
 const TeamSection = () => (
   <section className="py-20 md:py-28 bg-surface">
     <div className="container">
+      {/* Faculty Section */}
+      <div className="text-center mb-14">
+        <p className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-2">
+          Guiding Forces
+        </p>
+        <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground">
+          Faculty
+        </h2>
+      </div>
+
+      <div className="grid sm:grid-cols-2 gap-8 max-w-2xl mx-auto mb-20">
+        {faculty.map((m, i) => (
+          <motion.div
+            key={m.role}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: i * 0.1 }}
+            className="group text-center"
+          >
+            <div className="relative w-40 h-40 mx-auto mb-5 rounded-full overflow-hidden border-4 border-gold/30 group-hover:border-gold transition-colors duration-300">
+              <img
+                src={m.image}
+                alt={m.name}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <h3 className="font-heading text-lg font-semibold text-foreground mb-1">
+              {m.name}
+            </h3>
+            <p className="text-xs text-gold font-medium mb-3">{m.role}</p>
+            <p className="text-sm text-muted-foreground italic leading-relaxed">
+              "{m.quote}"
+            </p>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Student Team Section */}
       <div className="text-center mb-14">
         <p className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-2">
           The People Behind It
