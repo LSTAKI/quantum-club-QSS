@@ -12,16 +12,16 @@ import facultyAdvisor from "@/assets/team-faculty-advisor.jpg";
 
 const faculty = [
   {
-    name: "To be updated",
+    name: "Dr. R. H. Goudar",
     role: "Faculty Coordinator",
-    quote: "To be updated",
+  
     image: facultyCoordinator,
   },
   {
-    name: "To be updated",
+    name: "Dr. Harish B",
     role: "Faculty Advisor",
-    quote: "To be updated",
-    image: facultyAdvisor,
+    
+    image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764163344/Harish_Sir_3_hbkvpk.jpg",
   },
 ];
 
