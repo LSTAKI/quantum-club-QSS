@@ -9,25 +9,25 @@ const speakers = [
     name: "To be updated",
     role: "To be updated",
     quote: "To be updated",
-    image: speaker1,
+    image: null,
   },
   {
     name: "To be updated",
     role: "To be updated",
     quote: "To be updated",
-    image: speaker2,
+    image: null,
   },
   {
     name: "To be updated",
     role: "To be updated",
     quote: "To be updated",
-    image: speaker3,
+    image: null,
   },
   {
     name: "To be updated",
     role: "To be updated",
     quote: "To be updated",
-    image: speaker4,
+    image: null,
   },
 ];
 
