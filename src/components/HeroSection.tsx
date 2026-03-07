@@ -87,7 +87,7 @@ const HeroSection = () => {
           className="text-base md:text-lg max-w-xl mx-auto mt-6 mb-10"
           style={{ color: "hsla(210, 30%, 85%, 0.7)" }}
         >
-          16 – 17 December 2025 · Visvesvaraya Technological University
+          10 – 11 April 2026· Visvesvaraya Technological University
         </motion.p>
 
         <motion.div
