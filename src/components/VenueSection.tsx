@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { MapPin, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import campusImage from "@/assets/campus.jpg";
+import campusImage from "https://vtu.ac.in/wp-content/uploads/2022/08/vtu-banner-1a-1516x552-1-1516x552.jpg";
 
 const VenueSection = () => (
   <section id="venue" className="py-24 bg-surface">
