@@ -27,53 +27,48 @@ const faculty = [
 
 const team = [
   {
-    name: "Arjun Desai",
-    role: "President, VTU Quantum Club",
+    name: "KARTHIK RAO R",
+    role: "Chair, VTU Quantum Club",
     quote: "Building a community where quantum curiosity thrives.",
-    image: team1,
+    image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764170746/karthik_bhai_4_x8awnz.jpg",
   },
   {
-    name: "Meera Sharma",
-    role: "Vice President & Events Lead",
+    name: "Arun Mallikarjun Hikadi",
+    role: "Technical Committee Lead",
     quote: "Every great discovery starts with a bold question.",
-    image: team2,
+    image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764157705/Arun_H_3_ddcyq1.jpg",
   },
   {
-    name: "Rohan Patil",
-    role: "Technical Lead",
+    name: "TAKI ALTAF TAJUDDIN MULLA",
+    role: "Web Designing Committee Lead",
     quote: "Code, circuits, and qubits — that's our playground.",
-    image: team3,
+    image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764163560/Taki-1_xrbrpz.jpg",
   },
   {
-    name: "Ananya Kulkarni",
-    role: "Outreach & PR Coordinator",
+    name: "Rehan Nadaf",
+    role: "Social Media Committee Lead",
     quote: "Connecting minds across campuses for quantum collaboration.",
-    image: team4,
+    image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764164135/IMG_20251027_131513_292_-_Rehan_Nadaf-02_fij9fm.jpg",
   },
   {
-    name: "Karthik Nair",
-    role: "Research & Documentation Lead",
+    name: "Varun Kambar",
+    role: "Members Development Committee Lead",
     quote: "Every experiment tells a story worth sharing.",
-    image: team5,
+    image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764163809/20251125_080215_-_Arun_H_tjrzx2.jpg",
   },
   {
-    name: "Sneha Joshi",
-    role: "Design & Media Head",
+    name: "Shreya N Bannadanulmath",
+    role: "Event Coordination Committee Lead",
     quote: "Making quantum science visually compelling for everyone.",
-    image: team6,
+    image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764164447/IMG_my_photo_-_Shreya_N_B-01_jy9tif.jpg",
   },
   {
-    name: "Aditya Hegde",
-    role: "Logistics & Operations Lead",
+    name: "Vaishnavi K S",
+    role: "Industry Relations Committee Lead",
     quote: "Seamless events are built on meticulous planning.",
-    image: team7,
+    image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764153344/Vaishnavi_K_S_ig06zo.jpg",
   },
-  {
-    name: "Divya Rao",
-    role: "Sponsorship & Finance Coordinator",
-    quote: "Turning partnerships into possibilities for students.",
-    image: team8,
-  },
+
 ];
 
 const TeamSection = () => (
