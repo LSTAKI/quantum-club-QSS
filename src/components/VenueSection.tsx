@@ -42,10 +42,12 @@ const VenueSection = () => (
             <MapPin size={18} className="text-accent" />
             <span className="text-sm">Belagavi, Karnataka, India</span>
           </div>
-          <Button variant="default" size="default">
-            <ExternalLink size={16} className="mr-2" />
-            Visit VTU
-          </Button>
+          <a href="https://vtu.ac.in" target="_blank" rel="noopener noreferrer">
+            <Button variant="default" size="default">
+              <ExternalLink size={16} className="mr-2" />
+              Visit VTU
+            </Button>
+          </a>
         </motion.div>
       </div>
     </div>
