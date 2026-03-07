@@ -6,27 +6,27 @@ import speaker4 from "@/assets/speaker-4.jpg";
 
 const speakers = [
   {
-    name: "Dr. Anil Kumar",
-    role: "IISc Bangalore, Dept. of Physics",
-    quote: "Quantum computing will redefine how we solve the world's hardest problems.",
+    name: "To be updated",
+    role: "To be updated",
+    quote: "To be updated",
     image: speaker1,
   },
   {
-    name: "Dr. Priya Natarajan",
-    role: "IIT Madras, Quantum Computing Lab",
-    quote: "The future belongs to those who can harness quantum phenomena.",
+    name: "To be updated",
+    role: "To be updated",
+    quote: "To be updated",
     image: speaker2,
   },
   {
-    name: "Dr. Rajesh Gopakumar",
-    role: "ICTS-TIFR, Theoretical Sciences",
-    quote: "Bridging theory and experiment is the greatest challenge of our time.",
+    name: "To be updated",
+    role: "To be updated",
+    quote: "To be updated",
     image: speaker3,
   },
   {
-    name: "Dr. Sanhita Sinharay",
-    role: "IISc Bangalore, Molecular Sciences",
-    quote: "Undergraduate curiosity is the catalyst for quantum breakthroughs.",
+    name: "To be updated",
+    role: "To be updated",
+    quote: "To be updated",
     image: speaker4,
   },
 ];
