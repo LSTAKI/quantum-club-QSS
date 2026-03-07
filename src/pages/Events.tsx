@@ -41,7 +41,10 @@ const panelists = [
   { name: "To be updated", affiliation: "To be updated" },
 ];
 
-const REGISTER_URL = "https://konfhub.com/";
+const POSTER_REGISTER_URL = "https://konfhub.com/poster";
+const QUBITATHON_REGISTER_URL = "https://konfhub.com/qubitathon";
+const POSTER_TOPICS_URL = "https://drive.google.com/poster-topics-placeholder";
+const QUBITATHON_TOPICS_URL = "https://drive.google.com/qubitathon-topics-placeholder";
 
 /* Animated section divider */
 const SectionDivider = () => (
@@ -120,10 +123,16 @@ const Events = () => (
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
+              className="flex gap-3 flex-wrap"
             >
-              <a href={REGISTER_URL} target="_blank" rel="noopener noreferrer">
+              <a href={POSTER_REGISTER_URL} target="_blank" rel="noopener noreferrer">
                 <Button variant="gold" size="lg">
                   Register Now
+                </Button>
+              </a>
+              <a href={POSTER_TOPICS_URL} target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" size="lg">
+                  Topics
                 </Button>
               </a>
             </motion.div>
@@ -278,10 +287,16 @@ const Events = () => (
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
+              className="flex gap-3 flex-wrap"
             >
-              <a href={REGISTER_URL} target="_blank" rel="noopener noreferrer">
+              <a href={QUBITATHON_REGISTER_URL} target="_blank" rel="noopener noreferrer">
                 <Button variant="gold" size="lg">
                   Register Now
+                </Button>
+              </a>
+              <a href={QUBITATHON_TOPICS_URL} target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" size="lg">
+                  Topics
                 </Button>
               </a>
             </motion.div>
