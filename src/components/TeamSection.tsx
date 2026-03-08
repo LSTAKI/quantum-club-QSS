@@ -104,10 +104,7 @@ const TeamSection = () => (
             <h3 className="font-heading text-lg font-semibold text-foreground mb-1">
               {m.name}
             </h3>
-            <p className="text-xs text-gold font-medium mb-3">{m.role}</p>
-            <p className="text-sm text-muted-foreground italic leading-relaxed">
-              "{m.quote}"
-            </p>
+            <p className="text-xs text-gold font-medium">{m.role}</p>
           </motion.div>
         ))}
       </div>
