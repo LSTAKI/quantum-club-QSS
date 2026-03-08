@@ -56,8 +56,14 @@ const Footer = () => (
           <div className="space-y-3 text-sm text-navy-foreground/60">
             <div className="flex items-center gap-2">
               <Mail size={16} className="text-gold" />
-              <a href="mailto:quantumclub@vtu.ac.in" className="hover:text-gold transition-colors">
-                quantumclub@vtu.ac.in
+              <a href="mailto:vtuquantumclub@gmail.com" className="hover:text-gold transition-colors">
+                vtuquantumclub@gmail.com
+              </a>
+            </div>
+            <div className="flex items-center gap-2">
+              <Globe size={16} className="text-gold" />
+              <a href="https://vtu-quantum-club.vercel.app/" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">
+                vtu-quantum-club.vercel.app
               </a>
             </div>
             <p>Public Relations Team</p>
