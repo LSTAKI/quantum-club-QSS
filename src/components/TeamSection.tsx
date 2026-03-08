@@ -29,46 +29,45 @@ const team = [
   {
     name: "KARTHIK RAO R",
     role: "Chair, VTU Quantum Club",
-    quote: "Building a community where quantum curiosity thrives.",
+    quote: "Leading from the front to shape the future of quantum at VTU.",
     image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764170746/karthik_bhai_4_x8awnz.jpg",
   },
   {
     name: "Arun Mallikarjun Hikadi",
     role: "Technical Committee Lead",
-    quote: "Every great discovery starts with a bold question.",
+    quote: "Turning complex quantum concepts into hands-on technical experiences.",
     image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764157705/Arun_H_3_ddcyq1.jpg",
   },
   {
     name: "TAKI ALTAF TAJUDDIN MULLA",
     role: "Web Designing Committee Lead",
-    quote: "Code, circuits, and qubits — that's our playground.",
+    quote: "Crafting digital experiences that bring quantum science to every screen.",
     image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764163560/Taki-1_xrbrpz.jpg",
   },
   {
     name: "Rehan Nadaf",
     role: "Social Media Committee Lead",
-    quote: "Connecting minds across campuses for quantum collaboration.",
+    quote: "Amplifying quantum stories across platforms to inspire the next generation.",
     image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764164135/IMG_20251027_131513_292_-_Rehan_Nadaf-02_fij9fm.jpg",
   },
   {
     name: "Varun Kambar",
     role: "Members Development Committee Lead",
-    quote: "Every experiment tells a story worth sharing.",
+    quote: "Nurturing talent and empowering every member to grow as a quantum enthusiast.",
     image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764163809/20251125_080215_-_Arun_H_tjrzx2.jpg",
   },
   {
     name: "Shreya N Bannadanulmath",
     role: "Event Coordination Committee Lead",
-    quote: "Making quantum science visually compelling for everyone.",
+    quote: "Orchestrating seamless events where great ideas and great minds converge.",
     image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764164447/IMG_my_photo_-_Shreya_N_B-01_jy9tif.jpg",
   },
   {
     name: "Vaishnavi K S",
     role: "Industry Relations Committee Lead",
-    quote: "Seamless events are built on meticulous planning.",
+    quote: "Bridging academia and industry to unlock real-world quantum opportunities.",
     image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764153344/Vaishnavi_K_S_ig06zo.jpg",
   },
-
 ];
 
 const TeamSection = () => (
