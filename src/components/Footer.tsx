@@ -12,7 +12,7 @@ const quickLinks = [
 const socials = [
   { icon: Instagram, href: "#", label: "Instagram" },
   { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Twitter, href: "#", label: "X (Twitter)" },
+  { icon: MessageCircle, href: "https://discord.gg/lovable-dev", label: "Discord" },
 ];
 
 const Footer = () => (
