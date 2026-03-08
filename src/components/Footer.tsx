@@ -1,4 +1,4 @@
-import { Instagram, Linkedin, Twitter, Mail, Globe } from "lucide-react";
+import { Instagram, Linkedin, MessageCircle, Mail, Globe } from "lucide-react";
 
 const quickLinks = [
   { label: "Home", href: "#home" },
