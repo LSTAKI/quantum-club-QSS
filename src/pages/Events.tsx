@@ -137,6 +137,11 @@ const Events = () => (
                   Topics
                 </Button>
               </a>
+              <a href={POSTER_RULEBOOK_URL} target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" size="lg">
+                  Rule Book
+                </Button>
+              </a>
             </motion.div>
           </motion.div>
 
