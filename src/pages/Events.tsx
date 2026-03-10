@@ -287,7 +287,7 @@ const Events = () => (
               This is your chance to think big, collaborate under pressure, and showcase your problem-solving skills to industry leaders and academic mentors.
             </motion.p>
             <motion.p {...staggerItem} className="text-sm font-semibold text-foreground mb-6">
-              Team Size: 3–4 members (compulsory)
+              Team Size: 3–4 members (compulsory PPT Presentation)
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 10 }}
