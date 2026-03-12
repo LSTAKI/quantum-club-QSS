@@ -5,7 +5,7 @@ const chiefPatron = {
   name: "Vice Chancellor, VTU",
   role: "Chief Patron",
   quote: "Empowering innovation and excellence through quantum education.",
-  image: "https://via.placeholder.com/400x400?text=VC+Photo",
+  image: "https://vtu.ac.in/wp-content/uploads/2024/08/vcne.jpg",
 };
 
 // Patrons (triangle: Registrar on top, Registrar Eval + Finance Officer below)
@@ -14,19 +14,19 @@ const patrons = [
     name: "Registrar, VTU",
     role: "Patron",
     quote: "Supporting the vision of a quantum-ready future for every student.",
-    image: "https://via.placeholder.com/400x400?text=Registrar+Photo",
+    image: "https://vtu.ac.in/wp-content/uploads/2025/10/5.png",
   },
   {
     name: "Registrar (Evaluation), VTU",
     role: "Patron",
     quote: "Ensuring academic excellence meets cutting-edge quantum research.",
-    image: "https://via.placeholder.com/400x400?text=Registrar+Eval+Photo",
+    image: "https://vtu.ac.in/wp-content/uploads/2025/10/4.png",
   },
   {
     name: "Finance Officer, VTU",
     role: "Patron",
     quote: "Investing in the quantum frontier for a brighter tomorrow.",
-    image: "https://via.placeholder.com/400x400?text=Finance+Officer+Photo",
+    image: "https://vtu.ac.in/wp-content/uploads/2025/02/fo11.jpg",
   },
 ];
 
