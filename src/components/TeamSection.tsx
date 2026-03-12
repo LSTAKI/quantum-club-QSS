@@ -1,26 +1,44 @@
 import { motion } from "framer-motion";
-import team1 from "@/assets/team-1.jpg";
-import team2 from "@/assets/team-2.jpg";
-import team3 from "@/assets/team-3.jpg";
-import team4 from "@/assets/team-4.jpg";
-import team5 from "@/assets/team-5.jpg";
-import team6 from "@/assets/team-6.jpg";
-import team7 from "@/assets/team-7.jpg";
-import team8 from "@/assets/team-8.jpg";
-import facultyCoordinator from "@/assets/team-faculty-coordinator.jpg";
-import facultyAdvisor from "@/assets/team-faculty-advisor.jpg";
+
+// Chief Patron
+const chiefPatron = {
+  name: "Vice Chancellor, VTU",
+  role: "Chief Patron",
+  quote: "Empowering innovation and excellence through quantum education.",
+  image: "https://via.placeholder.com/400x400?text=VC+Photo",
+};
+
+// Patrons (triangle: Registrar on top, Registrar Eval + Finance Officer below)
+const patrons = [
+  {
+    name: "Registrar, VTU",
+    role: "Patron",
+    quote: "Supporting the vision of a quantum-ready future for every student.",
+    image: "https://via.placeholder.com/400x400?text=Registrar+Photo",
+  },
+  {
+    name: "Registrar (Evaluation), VTU",
+    role: "Patron",
+    quote: "Ensuring academic excellence meets cutting-edge quantum research.",
+    image: "https://via.placeholder.com/400x400?text=Registrar+Eval+Photo",
+  },
+  {
+    name: "Finance Officer, VTU",
+    role: "Patron",
+    quote: "Investing in the quantum frontier for a brighter tomorrow.",
+    image: "https://via.placeholder.com/400x400?text=Finance+Officer+Photo",
+  },
+];
 
 const faculty = [
   {
     name: "Dr. R. H. Goudar",
     role: "Faculty Coordinator",
-  
     image: "https://vtu.ac.in/wp-content/uploads/2020/01/rhg.jpg",
   },
   {
     name: "Dr. Harish B",
     role: "Faculty Advisor",
-    
     image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764163344/Harish_Sir_3_hbkvpk.jpg",
   },
 ];
@@ -70,9 +88,87 @@ const team = [
   },
 ];
 
+const PersonCard = ({
+  name,
+  role,
+  quote,
+  image,
+  size = "w-40 h-40",
+  borderColor = "border-gold/30",
+  delay = 0,
+}: {
+  name: string;
+  role: string;
+  quote?: string;
+  image: string;
+  size?: string;
+  borderColor?: string;
+  delay?: number;
+}) => (
+  <motion.div
+    initial={{ opacity: 0, y: 24 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5, delay }}
+    className="group text-center"
+  >
+    <div
+      className={`relative ${size} mx-auto mb-5 rounded-full overflow-hidden border-4 ${borderColor} group-hover:border-gold transition-colors duration-300`}
+    >
+      <img src={image} alt={name} className="w-full h-full object-cover" />
+    </div>
+    <h3 className="font-heading text-lg font-semibold text-foreground mb-1">{name}</h3>
+    <p className="text-xs text-gold font-medium mb-3">{role}</p>
+    {quote && (
+      <p className="text-sm text-muted-foreground italic leading-relaxed max-w-xs mx-auto">
+        "{quote}"
+      </p>
+    )}
+  </motion.div>
+);
+
 const TeamSection = () => (
   <section className="py-20 md:py-28 bg-surface">
     <div className="container">
+      {/* Chief Patron */}
+      <div className="text-center mb-14">
+        <p className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-2">
+          Honourable
+        </p>
+        <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground">
+          Chief Patron
+        </h2>
+      </div>
+      <div className="flex justify-center mb-20">
+        <PersonCard
+          {...chiefPatron}
+          size="w-44 h-44"
+          borderColor="border-gold/40"
+        />
+      </div>
+
+      {/* Patrons - Triangle layout */}
+      <div className="text-center mb-14">
+        <p className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-2">
+          Esteemed
+        </p>
+        <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground">
+          Patrons
+        </h2>
+      </div>
+      <div className="mb-20">
+        {/* Top: Registrar centered */}
+        <div className="flex justify-center mb-8">
+          <PersonCard {...patrons[0]} />
+        </div>
+        {/* Bottom: Registrar Eval + Finance Officer */}
+        <div className="grid sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
+          {patrons.slice(1).map((m, i) => (
+            <PersonCard key={m.name} {...m} delay={(i + 1) * 0.1} />
+          ))}
+        </div>
+      </div>
+
       {/* Faculty Section */}
       <div className="text-center mb-14">
         <p className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-2">
@@ -82,29 +178,9 @@ const TeamSection = () => (
           Faculty
         </h2>
       </div>
-
       <div className="grid sm:grid-cols-2 gap-8 max-w-2xl mx-auto mb-20">
         {faculty.map((m, i) => (
-          <motion.div
-            key={m.role}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="group text-center"
-          >
-            <div className="relative w-40 h-40 mx-auto mb-5 rounded-full overflow-hidden border-4 border-gold/30 group-hover:border-gold transition-colors duration-300">
-              <img
-                src={m.image}
-                alt={m.name}
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <h3 className="font-heading text-lg font-semibold text-foreground mb-1">
-              {m.name}
-            </h3>
-            <p className="text-xs text-gold font-medium">{m.role}</p>
-          </motion.div>
+          <PersonCard key={m.role} {...m} delay={i * 0.1} />
         ))}
       </div>
 
@@ -117,32 +193,14 @@ const TeamSection = () => (
           Meet Our Team
         </h2>
       </div>
-
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {team.map((m, i) => (
-          <motion.div
+          <PersonCard
             key={m.name}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="group text-center"
-          >
-            <div className="relative w-40 h-40 mx-auto mb-5 rounded-full overflow-hidden border-4 border-accent/20 group-hover:border-gold transition-colors duration-300">
-              <img
-                src={m.image}
-                alt={m.name}
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <h3 className="font-heading text-lg font-semibold text-foreground mb-1">
-              {m.name}
-            </h3>
-            <p className="text-xs text-accent font-medium mb-3">{m.role}</p>
-            <p className="text-sm text-muted-foreground italic leading-relaxed">
-              "{m.quote}"
-            </p>
-          </motion.div>
+            {...m}
+            borderColor="border-accent/20"
+            delay={i * 0.1}
+          />
         ))}
       </div>
     </div>
