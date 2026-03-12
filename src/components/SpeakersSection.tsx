@@ -10,6 +10,8 @@ const speakers = [
   { name: "To be updated", role: "To be updated", quote: "To be updated", image: null, linkedin: "https://linkedin.com/in/" },
   { name: "To be updated", role: "To be updated", quote: "To be updated", image: null, linkedin: "https://linkedin.com/in/" },
   { name: "To be updated", role: "To be updated", quote: "To be updated", image: null, linkedin: "https://linkedin.com/in/" },
+  { name: "To be updated", role: "To be updated", quote: "To be updated", image: null, linkedin: "https://linkedin.com/in/" },
+  { name: "To be updated", role: "To be updated", quote: "To be updated", image: null, linkedin: "https://linkedin.com/in/" },
 ];
 
 const SpeakersSection = () => (
