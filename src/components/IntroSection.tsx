@@ -15,7 +15,7 @@ const IntroSection = () => (
           transition={{ duration: 0.6 }}
         >
           <p className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-3">
-            About the Summit
+            About Quantum Student Summit
           </p>
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6">
             Where Curiosity Meets{" "}
