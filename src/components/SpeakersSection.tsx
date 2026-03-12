@@ -1,18 +1,15 @@
 import { motion } from "framer-motion";
-import speaker1 from "@/assets/speaker-1.jpg";
-import speaker2 from "@/assets/speaker-2.jpg";
-import speaker3 from "@/assets/speaker-3.jpg";
-import speaker4 from "@/assets/speaker-4.jpg";
+import { Linkedin } from "lucide-react";
 
 const speakers = [
-  { name: "To be updated", role: "To be updated", quote: "To be updated", image: null },
-  { name: "To be updated", role: "To be updated", quote: "To be updated", image: null },
-  { name: "To be updated", role: "To be updated", quote: "To be updated", image: null },
-  { name: "To be updated", role: "To be updated", quote: "To be updated", image: null },
-  { name: "To be updated", role: "To be updated", quote: "To be updated", image: null },
-  { name: "To be updated", role: "To be updated", quote: "To be updated", image: null },
-  { name: "To be updated", role: "To be updated", quote: "To be updated", image: null },
-  { name: "To be updated", role: "To be updated", quote: "To be updated", image: null },
+  { name: "To be updated", role: "To be updated", quote: "To be updated", image: null, linkedin: "https://linkedin.com/in/" },
+  { name: "To be updated", role: "To be updated", quote: "To be updated", image: null, linkedin: "https://linkedin.com/in/" },
+  { name: "To be updated", role: "To be updated", quote: "To be updated", image: null, linkedin: "https://linkedin.com/in/" },
+  { name: "To be updated", role: "To be updated", quote: "To be updated", image: null, linkedin: "https://linkedin.com/in/" },
+  { name: "To be updated", role: "To be updated", quote: "To be updated", image: null, linkedin: "https://linkedin.com/in/" },
+  { name: "To be updated", role: "To be updated", quote: "To be updated", image: null, linkedin: "https://linkedin.com/in/" },
+  { name: "To be updated", role: "To be updated", quote: "To be updated", image: null, linkedin: "https://linkedin.com/in/" },
+  { name: "To be updated", role: "To be updated", quote: "To be updated", image: null, linkedin: "https://linkedin.com/in/" },
 ];
 
 const SpeakersSection = () => (
