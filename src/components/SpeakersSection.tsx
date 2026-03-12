@@ -44,7 +44,16 @@ const SpeakersSection = () => (
             <h3 className="font-heading text-lg font-semibold text-foreground mb-1">
               {s.name}
             </h3>
-            <p className="text-xs text-accent font-medium mb-3">{s.role}</p>
+            <p className="text-xs text-accent font-medium mb-2">{s.role}</p>
+            <a
+              href={s.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs text-primary hover:text-gold transition-colors duration-200 mb-3"
+            >
+              <Linkedin className="w-4 h-4" />
+              LinkedIn
+            </a>
             <p className="text-sm text-muted-foreground italic leading-relaxed">
               "{s.quote}"
             </p>
