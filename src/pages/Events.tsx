@@ -127,11 +127,6 @@ const Events = () => (
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex gap-3 flex-wrap"
             >
-              <a href={POSTER_REGISTER_URL} target="_blank" rel="noopener noreferrer">
-                <Button variant="gold" size="lg">
-                  Register Now
-                </Button>
-              </a>
               <a href={POSTER_TOPICS_URL} target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" size="lg">
                   Topics
