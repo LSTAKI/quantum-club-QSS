@@ -5,30 +5,14 @@ import speaker3 from "@/assets/speaker-3.jpg";
 import speaker4 from "@/assets/speaker-4.jpg";
 
 const speakers = [
-  {
-    name: "To be updated",
-    role: "To be updated",
-    quote: "To be updated",
-    image: null,
-  },
-  {
-    name: "To be updated",
-    role: "To be updated",
-    quote: "To be updated",
-    image: null,
-  },
-  {
-    name: "To be updated",
-    role: "To be updated",
-    quote: "To be updated",
-    image: null,
-  },
-  {
-    name: "To be updated",
-    role: "To be updated",
-    quote: "To be updated",
-    image: null,
-  },
+  { name: "To be updated", role: "To be updated", quote: "To be updated", image: null },
+  { name: "To be updated", role: "To be updated", quote: "To be updated", image: null },
+  { name: "To be updated", role: "To be updated", quote: "To be updated", image: null },
+  { name: "To be updated", role: "To be updated", quote: "To be updated", image: null },
+  { name: "To be updated", role: "To be updated", quote: "To be updated", image: null },
+  { name: "To be updated", role: "To be updated", quote: "To be updated", image: null },
+  { name: "To be updated", role: "To be updated", quote: "To be updated", image: null },
+  { name: "To be updated", role: "To be updated", quote: "To be updated", image: null },
 ];
 
 const SpeakersSection = () => (
