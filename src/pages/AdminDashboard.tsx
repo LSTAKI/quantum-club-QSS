@@ -193,7 +193,8 @@ const CrudManager = ({ table, fields }: { table: string; fields: FieldDef[] }) =
         updateData[f.key] = f.type === "number" ? Number(editForm[f.key]) : editForm[f.key];
       }
     });
-    const { error } = await supabase.from(table as any).update(updateData as any).eq("id" as any, id);
+    // @ts-ignore - dynamic table access
+    const { error } = await (supabase.from(table) as any).update(updateData).eq("id", id);
     if (error) {
       toast({ title: "Error saving", description: error.message, variant: "destructive" });
     } else {
