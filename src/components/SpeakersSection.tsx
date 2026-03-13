@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { Linkedin } from "lucide-react";
 
 const speakers = [
-  { name: "Shankar Kumar Selvaraja", role: "Speaker",image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1773399547/SP-1_hcyoxo.jpg", linkedin: "https://www.linkedin.com/in/shankarselvaraja?utm_source=share_via&utm_content=profile&utm_medium=member_android" },
-  { name: "To be updated", role: "To be updated", quote: "To be updated", image: null, linkedin: "https://linkedin.com/in/" },
+  { name: "Shankar Kumar Selvaraja", role: "Speaker",quote:"IISc Bangalore" , image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1773399547/SP-1_hcyoxo.jpg", linkedin: "https://www.linkedin.com/in/shankarselvaraja?utm_source=share_via&utm_content=profile&utm_medium=member_android" },
+  { name: "Prabhu Ramappa", role: "Speaker", quote: "Associate Professor (Physics), Indian Institute of Technology Dharwad", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1773400407/SP-2_wzcjwo.jpg", linkedin: "https://www.linkedin.com/in/r-prabhu?utm_source=share_via&utm_content=profile&utm_medium=member_android" },
   { name: "To be updated", role: "To be updated", quote: "To be updated", image: null, linkedin: "https://linkedin.com/in/" },
   { name: "To be updated", role: "To be updated", quote: "To be updated", image: null, linkedin: "https://linkedin.com/in/" },
   { name: "To be updated", role: "To be updated", quote: "To be updated", image: null, linkedin: "https://linkedin.com/in/" },
