@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Linkedin } from "lucide-react";
 
 const speakers = [
-  { name: "To be updated", role: "To be updated", quote: "To be updated", image: null, linkedin: "https://linkedin.com/in/" },
+  { name: "Shankar Kumar Selvaraja", role: "Speaker",image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1773399547/SP-1_hcyoxo.jpg", linkedin: "https://www.linkedin.com/in/shankarselvaraja?utm_source=share_via&utm_content=profile&utm_medium=member_android" },
   { name: "To be updated", role: "To be updated", quote: "To be updated", image: null, linkedin: "https://linkedin.com/in/" },
   { name: "To be updated", role: "To be updated", quote: "To be updated", image: null, linkedin: "https://linkedin.com/in/" },
   { name: "To be updated", role: "To be updated", quote: "To be updated", image: null, linkedin: "https://linkedin.com/in/" },
