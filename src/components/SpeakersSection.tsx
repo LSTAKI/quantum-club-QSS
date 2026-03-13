@@ -2,12 +2,12 @@ import { motion } from "framer-motion";
 import { Linkedin } from "lucide-react";
 
 const speakers = [
+  { name: "T. S. Mahesh", role: "Speaker", quote: "Professor, Physics (IISER)", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1773402136/QP-5_uul59c.png" , linkedin: "https://sites.iiserpune.ac.in/~mahesh.ts/" },
   { name: "Shankar Kumar Selvaraja", role: "Speaker", quote: "IISc Bangalore", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1773399547/SP-1_hcyoxo.jpg", linkedin: "https://www.linkedin.com/in/shankarselvaraja?utm_source=share_via&utm_content=profile&utm_medium=member_android" },
   { name: "Prabhu Ramappa", role: "Speaker", quote: "Associate Professor (Physics), Indian Institute of Technology Dharwad", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1773400407/SP-2_wzcjwo.jpg", linkedin: "https://www.linkedin.com/in/r-prabhu?utm_source=share_via&utm_content=profile&utm_medium=member_android" },
   { name: "Bhawana Rudra", role: "Speaker", quote: "Asst. Professor at National Institute of Technology Karnataka", image: "https://infotech.nitk.ac.in/sites/default/files/mam_one_full.png", linkedin: "https://www.linkedin.com/in/bhawana-rudra-25584086?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" },
   { name: "Usha Devi A R", role: "Speaker", quote: "Professor at Bangalore University", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1773400919/SP-3_ksjvll.jpg", linkedin: "https://www.linkedin.com/in/usha-devi-a-r-16b240a8?utm_source=share_via&utm_content=profile&utm_medium=member_android" },
   { name: "Karthiganesh Durai", role: "Speaker", quote: "Quantum Computing Architect", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1773401076/SP-4_jtjise.jpg", linkedin: "https://www.linkedin.com/in/karthiganesh-durai-95535872?utm_source=share_via&utm_content=profile&utm_medium=member_android" },
-  { name: "To be updated", role: "To be updated", quote: "To be updated", image: null, linkedin: "https://linkedin.com/in/" },
   { name: "To be updated", role: "To be updated", quote: "To be updated", image: null, linkedin: "https://linkedin.com/in/" },
   { name: "To be updated", role: "To be updated", quote: "To be updated", image: null, linkedin: "https://linkedin.com/in/" },
   { name: "To be updated", role: "To be updated", quote: "To be updated", image: null, linkedin: "https://linkedin.com/in/" },
