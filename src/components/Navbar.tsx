@@ -1,20 +1,23 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, LogIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLocation, Link } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
 
 const navLinks = [
   { label: "Home", href: "/#home", route: "/" },
-  
   { label: "Events", href: "/events", route: "/events" },
   { label: "Speakers", href: "/speakers", route: "/speakers" },
   { label: "Team", href: "/team", route: "/team" },
-  
+  { label: "Schedule", href: "/schedule", route: "/schedule" },
+  { label: "FAQ", href: "/faq", route: "/faq" },
+  { label: "Contact", href: "/contact", route: "/contact" },
 ];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const { user, isAdmin, signOut } = useAuth();
 
   const isActive = (link: typeof navLinks[0]) => location.pathname === link.route && link.route !== "/";
 
@@ -50,14 +53,33 @@ const Navbar = () => {
               }`
             )
           )}
+          {user ? (
+            <div className="flex items-center gap-2 ml-3">
+              {isAdmin && (
+                <Link to="/admin">
+                  <Button variant="gold" size="sm">Admin</Button>
+                </Link>
+              )}
+              <Button variant="ghost" size="sm" onClick={signOut} className="text-navy-foreground/80 hover:text-gold">
+                Sign Out
+              </Button>
+            </div>
+          ) : (
+            <div className="flex items-center gap-2 ml-3">
+              <Link to="/login">
+                <Button variant="ghost" size="sm" className="text-navy-foreground/80 hover:text-gold">
+                  <LogIn className="w-4 h-4 mr-1" /> Login
+                </Button>
+              </Link>
+              <Link to="/register">
+                <Button variant="gold" size="sm">Register</Button>
+              </Link>
+            </div>
+          )}
         </nav>
 
         {/* Mobile toggle */}
-        <button
-          className="lg:hidden text-navy-foreground"
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
-        >
+        <button className="lg:hidden text-navy-foreground" onClick={() => setOpen(!open)} aria-label="Toggle menu">
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
@@ -74,6 +96,29 @@ const Navbar = () => {
               () => setOpen(false)
             )
           )}
+          <div className="px-6 pt-3 flex gap-2">
+            {user ? (
+              <>
+                {isAdmin && (
+                  <Link to="/admin" onClick={() => setOpen(false)}>
+                    <Button variant="gold" size="sm">Admin</Button>
+                  </Link>
+                )}
+                <Button variant="ghost" size="sm" onClick={() => { signOut(); setOpen(false); }} className="text-navy-foreground/80">
+                  Sign Out
+                </Button>
+              </>
+            ) : (
+              <>
+                <Link to="/login" onClick={() => setOpen(false)}>
+                  <Button variant="ghost" size="sm" className="text-navy-foreground/80">Login</Button>
+                </Link>
+                <Link to="/register" onClick={() => setOpen(false)}>
+                  <Button variant="gold" size="sm">Register</Button>
+                </Link>
+              </>
+            )}
+          </div>
         </nav>
       )}
     </header>
