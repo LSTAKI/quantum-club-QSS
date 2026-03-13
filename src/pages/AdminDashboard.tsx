@@ -347,8 +347,9 @@ const ReadOnlyTable = ({ table, columns }: { table: string; columns: string[] })
 
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await supabase.from(table as any).select("*").order("created_at" as any, { ascending: false });
-      if (data) setItems(data);
+      // @ts-ignore - dynamic table access
+      const { data } = await (supabase.from(table) as any).select("*").order("created_at", { ascending: false });
+      if (data) setItems(data as CrudItem[]);
     };
     fetchData();
   }, [table]);
