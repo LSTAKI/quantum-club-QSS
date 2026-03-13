@@ -180,8 +180,9 @@ const CrudManager = ({ table, fields }: { table: string; fields: FieldDef[] }) =
   const { toast } = useToast();
 
   const fetchItems = async () => {
-    const { data } = await supabase.from(table as any).select("*").order("display_order" as any);
-    if (data) setItems(data);
+    // @ts-ignore - dynamic table access
+    const { data } = await (supabase.from(table) as any).select("*").order("display_order");
+    if (data) setItems(data as CrudItem[]);
   };
 
   useEffect(() => { fetchItems(); }, [table]);
