@@ -212,7 +212,8 @@ const CrudManager = ({ table, fields }: { table: string; fields: FieldDef[] }) =
         insertData[f.key] = f.type === "number" ? Number(newForm[f.key]) : newForm[f.key];
       }
     });
-    const { error } = await supabase.from(table as any).insert(insertData as any);
+    // @ts-ignore - dynamic table access
+    const { error } = await (supabase.from(table) as any).insert(insertData);
     if (error) {
       toast({ title: "Error adding", description: error.message, variant: "destructive" });
     } else {
