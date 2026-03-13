@@ -226,7 +226,8 @@ const CrudManager = ({ table, fields }: { table: string; fields: FieldDef[] }) =
 
   const handleDelete = async (id: string) => {
     if (!confirm("Are you sure?")) return;
-    const { error } = await supabase.from(table as any).delete().eq("id" as any, id);
+    // @ts-ignore - dynamic table access
+    const { error } = await (supabase.from(table) as any).delete().eq("id", id);
     if (error) {
       toast({ title: "Error deleting", description: error.message, variant: "destructive" });
     } else {
