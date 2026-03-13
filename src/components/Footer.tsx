@@ -10,8 +10,8 @@ const quickLinks = [
 ];
 
 const socials = [
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
+  { icon: Instagram, href: "https://www.instagram.com/vtu_quantum_club?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", label: "Instagram" },
+  { icon: Linkedin, href: "https://www.linkedin.com/company/vtu-quantum-club/?viewAsMember=true", label: "LinkedIn" },
   { icon: MessageCircle, href: "https://discord.gg/pghkwgfHmd", label: "Discord" },
 ];
 
