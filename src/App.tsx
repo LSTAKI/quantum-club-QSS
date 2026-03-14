@@ -7,6 +7,7 @@ import { AuthProvider } from "@/hooks/useAuth";
 import Index from "./pages/Index";
 import Events from "./pages/Events";
 import Speakers from "./pages/Speakers";
+import Sponsors from './pages/Sponsors';
 import Team from "./pages/Team";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -29,8 +30,10 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/events" element={<Events />} />
             <Route path="/speakers" element={<Speakers />} />
+            <Route path="/sponsors" element={<Sponsors />} />
             <Route path="/team" element={<Team />} />
             <Route path="/login" element={<Login />} />
+            
             <Route path="/register" element={<Register />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/contact" element={<Contact />} />
