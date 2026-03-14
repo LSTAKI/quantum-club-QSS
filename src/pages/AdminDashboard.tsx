@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Plus, Trash2, Save, LogOut, Users, Mic, CalendarDays, HelpCircle, MessageSquare, Award, UserCheck } from "lucide-react";
+import { Plus, Trash2, Save, LogOut, Users, Mic, CalendarDays, HelpCircle, MessageSquare, Award, UserCheck, Shield } from "lucide-react";
 import Navbar from "@/components/Navbar";
 
 type CrudItem = Record<string, any>;
@@ -64,6 +64,7 @@ const AdminDashboard = () => {
             <TabsTrigger value="schedule" className="gap-1"><CalendarDays className="w-4 h-4" />Schedule</TabsTrigger>
             <TabsTrigger value="registrations" className="gap-1"><UserCheck className="w-4 h-4" />Registrations</TabsTrigger>
             <TabsTrigger value="messages" className="gap-1"><MessageSquare className="w-4 h-4" />Messages</TabsTrigger>
+            <TabsTrigger value="admins" className="gap-1"><Shield className="w-4 h-4" />Admins</TabsTrigger>
           </TabsList>
 
           <TabsContent value="speakers">
@@ -157,6 +158,10 @@ const AdminDashboard = () => {
 
           <TabsContent value="messages">
             <ReadOnlyTable table="contact_messages" columns={["name", "email", "subject", "message", "created_at"]} />
+          </TabsContent>
+
+          <TabsContent value="admins">
+            <AdminManager />
           </TabsContent>
         </Tabs>
       </div>
@@ -387,6 +392,107 @@ const ReadOnlyTable = ({ table, columns }: { table: string; columns: string[] })
             )}
           </tbody>
         </table>
+      </div>
+    </div>
+  );
+};
+
+// Admin role manager
+const AdminManager = () => {
+  const [admins, setAdmins] = useState<{ user_id: string; email: string }[]>([]);
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const { toast } = useToast();
+
+  const callApi = async (action: string, emailParam?: string) => {
+    const { data: { session } } = await supabase.auth.getSession();
+    const res = await fetch(
+      `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/manage-admin`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${session?.access_token}`,
+        },
+        body: JSON.stringify({ action, email: emailParam }),
+      }
+    );
+    return res.json();
+  };
+
+  const fetchAdmins = async () => {
+    const data = await callApi("list");
+    if (data.admins) setAdmins(data.admins);
+  };
+
+  useEffect(() => { fetchAdmins(); }, []);
+
+  const handleGrant = async () => {
+    if (!email.trim()) return;
+    setLoading(true);
+    const data = await callApi("grant", email.trim());
+    setLoading(false);
+    if (data.error) {
+      toast({ title: "Error", description: data.error, variant: "destructive" });
+    } else {
+      toast({ title: `Admin granted to ${email}` });
+      setEmail("");
+      fetchAdmins();
+    }
+  };
+
+  const handleRevoke = async (adminEmail: string) => {
+    if (!confirm(`Revoke admin access for ${adminEmail}?`)) return;
+    const data = await callApi("revoke", adminEmail);
+    if (data.error) {
+      toast({ title: "Error", description: data.error, variant: "destructive" });
+    } else {
+      toast({ title: "Admin access revoked" });
+      fetchAdmins();
+    }
+  };
+
+  return (
+    <div className="mt-6 space-y-6">
+      <h3 className="font-heading text-lg font-semibold text-foreground">Manage Admins</h3>
+
+      <div className="rounded-xl border border-gold/30 bg-card p-5 space-y-3">
+        <h4 className="font-semibold text-foreground">Grant Admin Access</h4>
+        <p className="text-xs text-muted-foreground">Enter the email of a registered user to grant them admin privileges.</p>
+        <div className="flex gap-2">
+          <Input
+            placeholder="user@example.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="flex-1"
+          />
+          <Button variant="gold" onClick={handleGrant} disabled={loading}>
+            <Shield className="w-4 h-4 mr-1" />
+            {loading ? "Granting..." : "Grant Admin"}
+          </Button>
+        </div>
+      </div>
+
+      <div className="space-y-3">
+        <h4 className="font-semibold text-foreground">Current Admins</h4>
+        {admins.map((a) => (
+          <motion.div
+            key={a.user_id}
+            layout
+            className="rounded-xl border border-border/50 bg-card p-4 shadow-card flex items-center justify-between"
+          >
+            <div className="flex items-center gap-3">
+              <Shield className="w-5 h-5 text-gold" />
+              <span className="font-medium text-foreground">{a.email}</span>
+            </div>
+            <Button variant="destructive" size="sm" onClick={() => handleRevoke(a.email)}>
+              <Trash2 className="w-4 h-4 mr-1" /> Revoke
+            </Button>
+          </motion.div>
+        ))}
+        {admins.length === 0 && (
+          <p className="text-center text-muted-foreground py-8">Loading admins...</p>
+        )}
       </div>
     </div>
   );
