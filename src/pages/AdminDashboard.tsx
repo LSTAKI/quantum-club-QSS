@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Plus, Trash2, Save, LogOut, Users, Mic, CalendarDays, HelpCircle, MessageSquare, Award, UserCheck } from "lucide-react";
+import { Plus, Trash2, Save, LogOut, Users, Mic, CalendarDays, HelpCircle, MessageSquare, Award, UserCheck, Shield } from "lucide-react";
 import Navbar from "@/components/Navbar";
 
 type CrudItem = Record<string, any>;
