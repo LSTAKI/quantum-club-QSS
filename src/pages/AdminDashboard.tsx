@@ -159,6 +159,10 @@ const AdminDashboard = () => {
           <TabsContent value="messages">
             <ReadOnlyTable table="contact_messages" columns={["name", "email", "subject", "message", "created_at"]} />
           </TabsContent>
+
+          <TabsContent value="admins">
+            <AdminManager />
+          </TabsContent>
         </Tabs>
       </div>
     </div>
