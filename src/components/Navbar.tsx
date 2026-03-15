@@ -111,7 +111,7 @@ const Navbar = () => {
                     <Button variant="gold" size="sm">Admin</Button>
                   </Link>
                 )}
-                <Button variant="ghost" size="sm" onClick={() => { signOut(); setOpen(false); }} className="text-navy-foreground/80">
+                <Button variant="ghost" size="sm" onClick={() => { handleSignOut(); setOpen(false); }} className="text-navy-foreground/80">
                   Sign Out
                 </Button>
               </>
