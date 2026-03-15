@@ -67,7 +67,7 @@ const Navbar = () => {
                   <Button variant="gold" size="sm">Admin</Button>
                 </Link>
               )}
-              <Button variant="ghost" size="sm" onClick={signOut} className="text-navy-foreground/80 hover:text-gold">
+              <Button variant="ghost" size="sm" onClick={handleSignOut} className="text-navy-foreground/80 hover:text-gold">
                 Sign Out
               </Button>
             </div>
