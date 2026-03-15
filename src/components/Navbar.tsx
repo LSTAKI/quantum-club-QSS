@@ -3,6 +3,7 @@ import { Menu, X, LogIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLocation, Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
+import { motion } from "framer-motion";
 
 const navLinks = [
   { label: "Home", href: "/#home", route: "/" },
@@ -44,7 +45,25 @@ const Navbar = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-navy/95 backdrop-blur-md border-b border-navy-light/30">
+    <motion.header
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b border-accent/10"
+      style={{
+        background: "linear-gradient(180deg, hsla(213, 80%, 8%, 0.95), hsla(213, 80%, 10%, 0.9))",
+      }}
+    >
+      {/* Animated top accent line */}
+      <motion.div
+        className="absolute top-0 left-0 right-0 h-px"
+        style={{
+          background: "linear-gradient(90deg, transparent, hsl(var(--accent)), transparent)",
+        }}
+        animate={{ opacity: [0.3, 0.8, 0.3] }}
+        transition={{ duration: 3, repeat: Infinity }}
+      />
+
       <div className="container flex items-center justify-between h-16">
         <Link to="/" className="font-heading text-xl font-bold text-navy-foreground tracking-tight">
           VTU <span className="text-gold">Quantum Club</span>
@@ -55,8 +74,10 @@ const Navbar = () => {
           {navLinks.map((l) =>
             renderLink(
               l,
-              `px-3 py-2 text-sm font-medium transition-colors ${
-                isActive(l) ? "text-gold border-b-2 border-gold" : "text-navy-foreground/80 hover:text-gold"
+              `px-3 py-2 text-sm font-medium transition-all duration-300 relative ${
+                isActive(l)
+                  ? "text-accent"
+                  : "text-navy-foreground/80 hover:text-accent"
               }`
             )
           )}
@@ -79,7 +100,9 @@ const Navbar = () => {
                 </Button>
               </Link>
               <Link to="/register">
-                <Button variant="gold" size="sm">Register</Button>
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Button variant="gold" size="sm">Register</Button>
+                </motion.div>
               </Link>
             </div>
           )}
@@ -93,12 +116,19 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {open && (
-        <nav className="lg:hidden bg-navy border-t border-navy-light/30 pb-4">
+        <motion.nav
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="lg:hidden border-t border-accent/10 pb-4"
+          style={{
+            background: "hsla(213, 80%, 8%, 0.98)",
+          }}
+        >
           {navLinks.map((l) =>
             renderLink(
               l,
               `block px-6 py-3 text-sm transition-colors ${
-                isActive(l) ? "text-gold font-semibold" : "text-navy-foreground/80 hover:text-gold"
+                isActive(l) ? "text-accent font-semibold" : "text-navy-foreground/80 hover:text-accent"
               }`,
               () => setOpen(false)
             )
@@ -126,9 +156,9 @@ const Navbar = () => {
               </>
             )}
           </div>
-        </nav>
+        </motion.nav>
       )}
-    </header>
+    </motion.header>
   );
 };
 
