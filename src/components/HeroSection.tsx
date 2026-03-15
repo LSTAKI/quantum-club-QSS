@@ -121,7 +121,7 @@ const HeroSection = () => {
           className="text-base md:text-lg max-w-xl mx-auto mt-6 mb-10 font-mono"
           style={{ color: "hsla(210, 30%, 85%, 0.7)" }}
         >
-          <span className="text-accent/60">[</span> 10 – 11 April 2026 <span className="text-accent/60">·</span> Visvesvaraya Technological University <span className="text-accent/60">]</span>
+          <span className="text-accent/60">[</span> 16 – 17 April 2026 <span className="text-accent/60">·</span> Visvesvaraya Technological University <span className="text-accent/60">]</span>
         </motion.p>
 
         {/* Animated hexagon border decoration */}
