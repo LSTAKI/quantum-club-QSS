@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Menu, X, LogIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 
 const navLinks = [
