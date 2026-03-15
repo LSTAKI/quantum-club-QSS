@@ -101,12 +101,32 @@ export default {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(-50%)" },
         },
+        "glow-pulse": {
+          "0%, 100%": { boxShadow: "0 0 20px 0 hsla(199, 89%, 48%, 0.1)" },
+          "50%": { boxShadow: "0 0 40px 8px hsla(199, 89%, 48%, 0.2)" },
+        },
+        "float": {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        "data-flow": {
+          "0%": { backgroundPosition: "0% 50%" },
+          "100%": { backgroundPosition: "200% 50%" },
+        },
+        "border-glow": {
+          "0%, 100%": { borderColor: "hsla(199, 89%, 48%, 0.2)" },
+          "50%": { borderColor: "hsla(199, 89%, 48%, 0.5)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in-up": "fade-in-up 0.6s ease-out forwards",
         "scroll-x": "scroll-x 30s linear infinite",
+        "glow-pulse": "glow-pulse 3s ease-in-out infinite",
+        "float": "float 6s ease-in-out infinite",
+        "data-flow": "data-flow 3s linear infinite",
+        "border-glow": "border-glow 3s ease-in-out infinite",
       },
     },
   },
