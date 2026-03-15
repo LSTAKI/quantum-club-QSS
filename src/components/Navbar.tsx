@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Menu, X, LogIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 
 const navLinks = [
@@ -18,7 +18,13 @@ const navLinks = [
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const { user, isAdmin, signOut } = useAuth();
+
+  const handleSignOut = async () => {
+    await signOut();
+    navigate("/");
+  };
 
   const isActive = (link: typeof navLinks[0]) => location.pathname === link.route && link.route !== "/";
 
@@ -61,7 +67,7 @@ const Navbar = () => {
                   <Button variant="gold" size="sm">Admin</Button>
                 </Link>
               )}
-              <Button variant="ghost" size="sm" onClick={signOut} className="text-navy-foreground/80 hover:text-gold">
+              <Button variant="ghost" size="sm" onClick={handleSignOut} className="text-navy-foreground/80 hover:text-gold">
                 Sign Out
               </Button>
             </div>
@@ -105,7 +111,7 @@ const Navbar = () => {
                     <Button variant="gold" size="sm">Admin</Button>
                   </Link>
                 )}
-                <Button variant="ghost" size="sm" onClick={() => { signOut(); setOpen(false); }} className="text-navy-foreground/80">
+                <Button variant="ghost" size="sm" onClick={() => { handleSignOut(); setOpen(false); }} className="text-navy-foreground/80">
                   Sign Out
                 </Button>
               </>
