@@ -101,7 +101,6 @@ const Schedule = () => {
                   {/* Animated timeline line */}
                   <motion.div
                     className="absolute left-5 top-0 bottom-0 w-px"
-                    style={{ background: "linear-gradient(180deg, hsl(var(--accent) / 0.5), hsl(var(--accent) / 0.1))" }}
                     initial={{ scaleY: 0 }}
                     whileInView={{ scaleY: 1 }}
                     viewport={{ once: true }}
