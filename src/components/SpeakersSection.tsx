@@ -2,6 +2,9 @@ import { motion } from "framer-motion";
 import { Linkedin } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
+import ParticleField from "@/components/ParticleField";
+import GlowCursor from "@/components/GlowCursor";
+import { GridOverlay, CyberBorder } from "@/components/TechEffects";
 
 const defaultSpeakers = [
   { id: "1", name: "T. S. Mahesh", role: "Speaker", quote: "Professor, Physics (IISER)", image_url: "https://res.cloudinary.com/dmzliau0j/image/upload/v1773402136/QP-5_uul59c.png", linkedin_url: "https://sites.iiserpune.ac.in/~mahesh.ts/", display_order: 0 },
@@ -24,56 +27,103 @@ const SpeakersSection = () => {
   const items = speakers || defaultSpeakers;
 
   return (
-    <section className="py-20 md:py-28 bg-background">
-      <div className="container">
-        <div className="text-center mb-14">
-          <p className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-2">
-            Distinguished Voices
-          </p>
+    <section className="relative py-20 md:py-28 bg-background overflow-hidden">
+      {/* Background effects */}
+      <div className="absolute inset-0 opacity-30">
+        <ParticleField />
+      </div>
+      <GridOverlay />
+      <GlowCursor />
+
+      <div className="container relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-14"
+        >
+          <motion.div
+            initial={{ scale: 0 }}
+            whileInView={{ scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ type: "spring", delay: 0.1 }}
+            className="flex items-center justify-center gap-2 mb-3"
+          >
+            <motion.span
+              className="h-px w-8 bg-accent/50"
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+            />
+            <span className="text-sm font-mono font-semibold tracking-[0.2em] uppercase text-accent">
+              Distinguished Voices
+            </span>
+            <motion.span
+              className="h-px w-8 bg-accent/50"
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+            />
+          </motion.div>
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground">
             Our Speakers
           </h2>
-        </div>
+          <motion.div
+            className="mx-auto mt-4 h-px max-w-[200px]"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            style={{ background: "linear-gradient(90deg, transparent, hsl(var(--accent) / 0.5), transparent)" }}
+          />
+        </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
           {items.map((s, i) => (
             <motion.div
               key={s.id}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
+              whileHover={{ y: -8 }}
               className="group text-center"
             >
-              <div className="relative w-40 h-40 mx-auto mb-5 rounded-full overflow-hidden border-4 border-accent/20 group-hover:border-gold transition-colors duration-300">
-                {s.image_url && (
-                  <img
-                    src={s.image_url}
-                    alt={s.name}
-                    className="w-full h-full object-cover"
+              <div className="tech-card rounded-xl p-6 h-full">
+                {/* Glowing avatar */}
+                <div className="relative w-32 h-32 mx-auto mb-5">
+                  <CyberBorder>
+                    <div className="w-full h-full rounded-full overflow-hidden">
+                      {s.image_url && (
+                        <img src={s.image_url} alt={s.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                      )}
+                    </div>
+                  </CyberBorder>
+                  {/* Pulse ring on hover */}
+                  <motion.div
+                    className="absolute inset-0 rounded-full border border-accent/30 opacity-0 group-hover:opacity-100"
+                    animate={{ scale: [1, 1.2, 1], opacity: [0, 0.5, 0] }}
+                    transition={{ duration: 2, repeat: Infinity }}
                   />
+                </div>
+
+                <h3 className="font-heading text-lg font-semibold text-foreground mb-1">{s.name}</h3>
+                <p className="text-xs text-accent font-mono font-medium mb-2">{s.role}</p>
+                {s.linkedin_url && (
+                  <a
+                    href={s.linkedin_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs text-primary hover:text-gold transition-colors duration-200 mb-3"
+                  >
+                    <Linkedin className="w-4 h-4" />
+                    LinkedIn
+                  </a>
+                )}
+                {s.quote && (
+                  <p className="text-sm text-muted-foreground italic leading-relaxed">"{s.quote}"</p>
                 )}
               </div>
-              <h3 className="font-heading text-lg font-semibold text-foreground mb-1">
-                {s.name}
-              </h3>
-              <p className="text-xs text-accent font-medium mb-2">{s.role}</p>
-              {s.linkedin_url && (
-                <a
-                  href={s.linkedin_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs text-primary hover:text-gold transition-colors duration-200 mb-3"
-                >
-                  <Linkedin className="w-4 h-4" />
-                  LinkedIn
-                </a>
-              )}
-              {s.quote && (
-                <p className="text-sm text-muted-foreground italic leading-relaxed">
-                  "{s.quote}"
-                </p>
-              )}
             </motion.div>
           ))}
         </div>

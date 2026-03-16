@@ -3,12 +3,12 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import EventsHero from "@/components/EventsHero";
+import GlowCursor from "@/components/GlowCursor";
+import { GridOverlay, CyberBorder } from "@/components/TechEffects";
 
 import poster1 from "@/assets/poster-1.jpg";
 import poster2 from "@/assets/poster-2.jpg";
 import poster3 from "@/assets/poster-3.jpg";
-import talk1 from "@/assets/talk-1.jpg";
-import talk2 from "@/assets/talk-2.jpg";
 import plenary1 from "@/assets/plenary-1.jpg";
 import plenary2 from "@/assets/plenary-2.jpg";
 import panelImg from "@/assets/panel-discussion.jpg";
@@ -48,7 +48,6 @@ const QUBITATHON_TOPICS_URL = "https://drive.google.com/file/d/1xPGZaed0q4Jh4riw
 const POSTER_RULEBOOK_URL = "https://drive.google.com/file/d/1xPGZaed0q4Jh4riwVOPLc7X4YxJ_TIu4/view?usp=sharing";
 const QUBITATHON_RULEBOOK_URL = "https://drive.google.com/file/d/1xPGZaed0q4Jh4riwVOPLc7X4YxJ_TIu4/view?usp=sharing";
 
-/* Animated section divider */
 const SectionDivider = () => (
   <motion.div
     className="mx-auto h-[1px] max-w-lg"
@@ -56,31 +55,34 @@ const SectionDivider = () => (
     whileInView={{ scaleX: 1 }}
     viewport={{ once: true }}
     transition={{ duration: 0.8 }}
-    style={{
-      background: "linear-gradient(90deg, transparent, hsl(var(--accent) / 0.3), transparent)",
-    }}
+    style={{ background: "linear-gradient(90deg, transparent, hsl(var(--accent) / 0.3), transparent)" }}
   />
 );
 
-/* Glowing image wrapper with hover */
 const GlowImage = ({ src, alt, className }: { src: string; alt: string; className?: string }) => (
   <motion.div
     className={`relative overflow-hidden rounded-lg group ${className || ""}`}
     whileHover={{ scale: 1.02 }}
     transition={{ duration: 0.3 }}
   >
-    <img
-      src={src}
-      alt={alt}
-      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-    />
+    <img src={src} alt={alt} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
     <div
       className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-      style={{
-        background: "linear-gradient(135deg, hsla(199, 89%, 48%, 0.1) 0%, transparent 60%)",
-      }}
+      style={{ background: "linear-gradient(135deg, hsla(199, 89%, 48%, 0.15) 0%, transparent 60%)" }}
+    />
+    {/* Scan line on hover */}
+    <motion.div
+      className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"
+      style={{ background: "repeating-linear-gradient(0deg, transparent, transparent 2px, hsla(199, 89%, 48%, 0.03) 2px, hsla(199, 89%, 48%, 0.03) 4px)" }}
     />
   </motion.div>
+);
+
+const StatusDot = () => (
+  <span className="relative flex h-2 w-2">
+    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
+    <span className="relative inline-flex rounded-full h-2 w-2 bg-accent" />
+  </span>
 );
 
 const Events = () => (
@@ -89,15 +91,14 @@ const Events = () => (
     <EventsHero />
 
     {/* Poster Presentations */}
-    <section className="py-20 md:py-28 bg-background overflow-hidden">
-      <div className="container">
+    <section className="relative py-20 md:py-28 bg-background overflow-hidden">
+      <GridOverlay />
+      <GlowCursor />
+      <div className="container relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div {...fadeUp}>
-            <motion.p
-              {...staggerItem}
-              className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-3"
-            >
-              Interactive Session
+            <motion.p {...staggerItem} className="text-sm font-mono font-semibold tracking-[0.2em] uppercase text-accent mb-3 flex items-center gap-2">
+              <StatusDot /> Interactive Session
             </motion.p>
             <motion.h2
               initial={{ opacity: 0, x: -30 }}
@@ -108,16 +109,13 @@ const Events = () => (
             >
               Poster Presentations
             </motion.h2>
-            <motion.p
-              {...staggerItem}
-              className="text-muted-foreground leading-relaxed mb-4"
-            >
+            <motion.p {...staggerItem} className="text-muted-foreground leading-relaxed mb-4">
               Step into our poster hall where undergraduate researchers showcase their quantum science discoveries in an intimate, interactive setting. Engage directly with presenters, ask questions, and explore cutting-edge student research across quantum computing, quantum optics, and condensed matter physics.
             </motion.p>
             <motion.p {...staggerItem} className="text-muted-foreground leading-relaxed mb-4">
               This session is designed for meaningful one-on-one conversations, fostering networking opportunities between students, faculty mentors, and industry professionals.
             </motion.p>
-            <motion.p {...staggerItem} className="text-sm font-semibold text-foreground mb-6">
+            <motion.p {...staggerItem} className="text-sm font-mono font-semibold text-foreground mb-6">
               Team Size: Up to 2 members
             </motion.p>
             <motion.div
@@ -128,23 +126,15 @@ const Events = () => (
               className="flex gap-3 flex-wrap"
             >
               <a href={POSTER_TOPICS_URL} target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" size="lg">
-                  Topics
-                </Button>
+                <Button variant="outline" size="lg">Topics</Button>
               </a>
               <a href={POSTER_RULEBOOK_URL} target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" size="lg">
-                  Rule Book
-                </Button>
+                <Button variant="outline" size="lg">Rule Book</Button>
               </a>
             </motion.div>
           </motion.div>
 
-          <motion.div
-            {...scaleIn}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="grid grid-cols-3 grid-rows-2 gap-3 h-[360px]"
-          >
+          <motion.div {...scaleIn} transition={{ duration: 0.7, delay: 0.2 }} className="grid grid-cols-3 grid-rows-2 gap-3 h-[360px]">
             <GlowImage src={poster1} alt="Students at poster boards" className="col-span-2 row-span-1 shadow-card" />
             <GlowImage src={poster2} alt="Student explaining research" className="col-span-1 row-span-2 shadow-card" />
             <GlowImage src={poster3} alt="Poster session crowd" className="col-span-2 row-span-1 shadow-card" />
@@ -156,12 +146,12 @@ const Events = () => (
     <SectionDivider />
 
     {/* Plenary Talks */}
-    <section className="py-20 md:py-28 bg-background overflow-hidden">
-      <div className="container">
+    <section className="relative py-20 md:py-28 bg-background overflow-hidden">
+      <div className="container relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div {...fadeUp}>
-            <motion.p {...staggerItem} className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-3">
-              Keynote
+            <motion.p {...staggerItem} className="text-sm font-mono font-semibold tracking-[0.2em] uppercase text-accent mb-3 flex items-center gap-2">
+              <StatusDot /> Keynote
             </motion.p>
             <motion.h2
               initial={{ opacity: 0, x: -30 }}
@@ -180,13 +170,13 @@ const Events = () => (
             </motion.p>
           </motion.div>
 
-          <motion.div
-            {...scaleIn}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="grid grid-cols-2 gap-3 h-[360px]"
-          >
-            <GlowImage src={plenary1} alt="Distinguished speaker lecturing" className="shadow-card" />
-            <GlowImage src={plenary2} alt="Expert presenting research" className="shadow-card" />
+          <motion.div {...scaleIn} transition={{ duration: 0.7, delay: 0.2 }} className="grid grid-cols-2 gap-3 h-[360px]">
+            <CyberBorder>
+              <GlowImage src={plenary1} alt="Distinguished speaker lecturing" className="h-full" />
+            </CyberBorder>
+            <CyberBorder>
+              <GlowImage src={plenary2} alt="Expert presenting research" className="h-full" />
+            </CyberBorder>
           </motion.div>
         </div>
       </div>
@@ -195,23 +185,19 @@ const Events = () => (
     <SectionDivider />
 
     {/* Panel Discussion */}
-    <section className="py-20 md:py-28 bg-surface overflow-hidden">
-      <div className="container">
+    <section className="relative py-20 md:py-28 bg-surface overflow-hidden">
+      <GridOverlay />
+      <div className="container relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <motion.div
-            {...scaleIn}
-            className="order-2 md:order-1"
-          >
-            <GlowImage
-              src={panelImg}
-              alt="Panel discussion at the summit."
-              className="w-full aspect-[4/3] shadow-card"
-            />
+          <motion.div {...scaleIn} className="order-2 md:order-1">
+            <CyberBorder>
+              <GlowImage src={panelImg} alt="Panel discussion at the summit." className="w-full aspect-[4/3]" />
+            </CyberBorder>
           </motion.div>
 
           <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.15 }} className="order-1 md:order-2">
-            <motion.p {...staggerItem} className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-3">
-              Discussion
+            <motion.p {...staggerItem} className="text-sm font-mono font-semibold tracking-[0.2em] uppercase text-accent mb-3 flex items-center gap-2">
+              <StatusDot /> Discussion
             </motion.p>
             <motion.h2
               initial={{ opacity: 0, x: 30 }}
@@ -228,16 +214,13 @@ const Events = () => (
             <motion.p {...staggerItem} className="text-muted-foreground leading-relaxed mb-6">
               An engaging conversation featuring distinguished panelists from India's premier research institutions exploring the role of undergraduate research in advancing quantum science.
             </motion.p>
-            <motion.h3
-              {...staggerItem}
-              className="font-heading text-lg font-semibold text-foreground mb-3."
-            >
+            <motion.h3 {...staggerItem} className="font-heading text-lg font-semibold text-foreground mb-3">
               Panelists
             </motion.h3>
             <ul className="space-y-2">
               {panelists.map((p, i) => (
                 <motion.li
-                  key={p.name}
+                  key={i}
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -259,12 +242,13 @@ const Events = () => (
     <SectionDivider />
 
     {/* Qubitathon */}
-    <section className="py-20 md:py-28 bg-background overflow-hidden">
-      <div className="container">
+    <section className="relative py-20 md:py-28 bg-background overflow-hidden">
+      <GlowCursor />
+      <div className="container relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div {...fadeUp}>
-            <motion.p {...staggerItem} className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-3">
-              Ideathon
+            <motion.p {...staggerItem} className="text-sm font-mono font-semibold tracking-[0.2em] uppercase text-accent mb-3 flex items-center gap-2">
+              <StatusDot /> Ideathon
             </motion.p>
             <motion.h2
               initial={{ opacity: 0, x: -30 }}
@@ -281,7 +265,7 @@ const Events = () => (
             <motion.p {...staggerItem} className="text-muted-foreground leading-relaxed mb-4">
               This is your chance to think big, collaborate under pressure, and showcase your problem-solving skills to industry leaders and academic mentors.
             </motion.p>
-            <motion.p {...staggerItem} className="text-sm font-semibold text-foreground mb-6">
+            <motion.p {...staggerItem} className="text-sm font-mono font-semibold text-foreground mb-6">
               Team Size: 3–4 members (compulsory PPT Presentation)
             </motion.p>
             <motion.div
@@ -292,30 +276,18 @@ const Events = () => (
               className="flex gap-3 flex-wrap"
             >
               <a href={QUBITATHON_TOPICS_URL} target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" size="lg">
-                  Topics
-                </Button>
+                <Button variant="outline" size="lg">Topics</Button>
               </a>
               <a href={QUBITATHON_RULEBOOK_URL} target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" size="lg">
-                  Rule Book
-                </Button>
+                <Button variant="outline" size="lg">Rule Book</Button>
               </a>
             </motion.div>
           </motion.div>
 
-          <motion.div
-            {...scaleIn}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="flex items-center justify-center."
-          >
+          <motion.div {...scaleIn} transition={{ duration: 0.7, delay: 0.2 }} className="flex items-center justify-center">
             <motion.div
-              className="w-full max-w-md aspect-square rounded-2xl flex flex-col items-center justify-center p-8 text-center relative overflow-hidden"
-              style={{
-                background: "linear-gradient(135deg, hsl(var(--accent) / 0.08), hsl(var(--accent) / 0.02))",
-                border: "1px solid hsl(var(--accent) / 0.15)",
-              }}
-              whileHover={{ scale: 1.03, borderColor: "hsl(var(--accent) / 0.3)" }}
+              className="tech-card w-full max-w-md aspect-square rounded-2xl flex flex-col items-center justify-center p-8 text-center relative overflow-hidden"
+              whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.3 }}
             >
               {/* Animated corner accents */}
@@ -345,11 +317,10 @@ const Events = () => (
                 <span className="text-4xl">💡</span>
               </motion.div>
               <h3 className="font-heading text-2xl font-bold text-foreground mb-2">Think. Build. Present.</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
+              <p className="text-muted-foreground text-sm leading-relaxed font-mono">
                 Industry-sourced problem statements · Team brainstorming · Prototype demo · Expert judging panel
               </p>
 
-              {/* Pulsing glow */}
               <motion.div
                 className="absolute inset-0 rounded-2xl pointer-events-none"
                 animate={{ opacity: [0, 0.05, 0] }}
