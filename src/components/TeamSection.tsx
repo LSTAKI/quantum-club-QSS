@@ -61,7 +61,7 @@ const committees: { key: string; label: string; members: CommitteeMember[] }[] =
     key: "accommodation",
     label: "Accommodation Committee",
     members: [
-      { name: "Pavitra B.K", role: "Committee Lead", quote: "Making sure every guest feels at home.", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1773761811/AC-1_ceqk6v.jpg", contact: 9880791908 },
+      { name: "Pavitra B.K", role: "Committee Lead", quote: "Making sure every guest feels at home.", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1773761811/AC-1_ceqk6v.jpg", phone: "9880791908" },
     ],
   },
   {
