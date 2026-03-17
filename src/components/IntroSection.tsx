@@ -4,7 +4,7 @@ import introImage from "@/assets/intro-image.jpg";
 import GlowCursor from "@/components/GlowCursor";
 import { CyberBorder, FloatingOrb, PulsingDot } from "@/components/TechEffects";
 
-const REGISTER_URL = "https://konfhub.com/";
+const REGISTER_URL = "https://konfhub.com/quantum-student-summit";
 
 const IntroSection = () => (
   <section id="about" className="py-24 bg-background relative overflow-hidden">
