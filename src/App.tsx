@@ -9,7 +9,6 @@ import Speakers from "./pages/Speakers";
 import Sponsors from './pages/Sponsors';
 import Team from "./pages/Team";
 import FAQ from "./pages/FAQ";
-import Contact from "./pages/Contact";
 import Schedule from "./pages/Schedule";
 import NotFound from "./pages/NotFound";
 
