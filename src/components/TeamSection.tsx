@@ -29,7 +29,7 @@ const chairperson = {
   image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764170746/karthik_bhai_4_x8awnz.jpg",
   email: "",
   phone: "7899465980",
-  linkedin: "https://www.linkedin.com/in/karthik-rao-r-063615336/",
+  linkedin: "",
 };
 
 interface CommitteeMember {
