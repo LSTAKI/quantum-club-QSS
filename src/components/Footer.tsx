@@ -110,7 +110,7 @@ const Footer = () => (
 
     <div className="border-t border-accent/10 relative" style={{ zIndex: 5 }}>
       <div className="container py-6 text-center text-xs text-navy-foreground/40 font-mono">
-        © 2025 VTU Quantum Club <span className="text-accent/30">|</span> All rights reserved.
+        © 2026 VTU Quantum Club <span className="text-accent/30">|</span> All rights reserved.
       </div>
     </div>
   </footer>
