@@ -28,8 +28,8 @@ const chairperson = {
   quote: "Leading from the front to shape the future of quantum at VTU.",
   image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764170746/karthik_bhai_4_x8awnz.jpg",
   email: "",
-  phone: "",
-  linkedin: "",
+  phone: "7899465980",
+  linkedin: "https://www.linkedin.com/in/karthik-rao-r-063615336/",
 };
 
 interface CommitteeMember {
@@ -47,49 +47,49 @@ const committees: { key: string; label: string; members: CommitteeMember[] }[] =
     key: "helpdesk",
     label: "Help Desk Committee",
     members: [
-      { name: "Help Desk Lead", role: "Committee Lead", quote: "Ensuring every attendee has an exceptional experience.", image: "https://via.placeholder.com/300x300?text=HD+Lead" },
+      { name: "Rohit R K", role: "Committee Lead", quote: "Ensuring every attendee has an exceptional experience.", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1773762965/HP-1_dvw3a9.jpg", phone: "7019783403" },
     ],
   },
   {
     key: "technical",
     label: "Technical Committee",
     members: [
-      { name: "Arun Mallikarjun Hikadi", role: "Technical Committee Lead", quote: "Turning complex quantum concepts into hands-on technical experiences.", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764157705/Arun_H_3_ddcyq1.jpg" },
+      { name: "Arun Mallikarjun Hikadi", role: "Technical Committee Lead", quote: "Turning complex quantum concepts into hands-on technical experiences.", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764157705/Arun_H_3_ddcyq1.jpg", phone: "8050670161" },
     ],
   },
   {
     key: "accommodation",
     label: "Accommodation Committee",
     members: [
-      { name: "Pavitra B.K", role: "Committee Lead", quote: "Making sure every guest feels at home.", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1773761811/AC-1_ceqk6v.jpg", phone: "9880791908" },
+      { name: "Sahana P", role: "Committee Lead", quote: "Making sure every guest feels at home.", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1773761811/AC-1_ceqk6v.jpg", phone: "9019964709" },
     ],
   },
   {
     key: "food",
     label: "Food Committee",
     members: [
-      { name: "Food Committee Lead", role: "Committee Lead", quote: "Fueling great minds with great food.", image: "https://via.placeholder.com/300x300?text=Food+Lead" },
+      { name: "Pavitra B.K", role: "Committee Lead", quote: "Fueling great minds with great food.", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1773762530/FO-1_w3a0e7.jpg", phone: "9880791908" },
     ],
   },
   {
     key: "sponsorship",
     label: "Sponsorship Committee",
     members: [
-      { name: "Sponsorship Lead", role: "Committee Lead", quote: "Building partnerships that power innovation.", image: "https://via.placeholder.com/300x300?text=Spon+Lead" },
+      { name: "Vaishnavi Kallayya Saunshimath", role: "Committee Lead", quote: "Building partnerships that power innovation.", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1773762846/SOP-1_o4hvn7.jpg", phone: "9972130328" },
     ],
   },
   {
     key: "registration",
     label: "Registration Committee",
     members: [
-      { name: "Registration Lead", role: "Committee Lead", quote: "Streamlining registrations for a seamless experience.", image: "https://via.placeholder.com/300x300?text=Reg+Lead" },
+      { name: "Rakshita Hangaragi", role: "Committee Lead", quote: "Streamlining registrations for a seamless experience.", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1773762698/RG-1_hwyvyg.jpg", phone: "9535060617" },
     ],
   },
   {
     key: "social_media",
     label: "Social Media Committee",
     members: [
-      { name: "Rehan Nadaf", role: "Social Media Committee Lead", quote: "Amplifying quantum stories across platforms to inspire the next generation.", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764164135/IMG_20251027_131513_292_-_Rehan_Nadaf-02_fij9fm.jpg" },
+      { name: "Rehan Nadaf", role: "Social Media Committee Lead", quote: "Amplifying quantum stories across platforms to inspire the next generation.", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1773763138/SC-1_syjjdt.jpg", phone: "9901198935" },
     ],
   },
   {
