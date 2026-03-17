@@ -1,8 +1,6 @@
 import { useState } from "react";
-import { Menu, X, LogIn } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useLocation, Link, useNavigate } from "react-router-dom";
-import { useAuth } from "@/hooks/useAuth";
+import { Menu, X } from "lucide-react";
+import { useLocation, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const navLinks = [
@@ -19,13 +17,6 @@ const navLinks = [
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
-  const { user, isAdmin, signOut } = useAuth();
-
-  const handleSignOut = async () => {
-    await signOut();
-    navigate("/");
-  };
 
   const isActive = (link: typeof navLinks[0]) => location.pathname === link.route && link.route !== "/";
 
@@ -54,7 +45,6 @@ const Navbar = () => {
         background: "linear-gradient(180deg, hsla(213, 80%, 8%, 0.95), hsla(213, 80%, 10%, 0.9))",
       }}
     >
-      {/* Animated top accent line */}
       <motion.div
         className="absolute top-0 left-0 right-0 h-px"
         style={{
@@ -69,7 +59,6 @@ const Navbar = () => {
           VTU <span className="text-gold">Quantum Club</span>
         </Link>
 
-        {/* Desktop */}
         <nav className="hidden lg:flex items-center gap-1">
           {navLinks.map((l) =>
             renderLink(
@@ -81,40 +70,13 @@ const Navbar = () => {
               }`
             )
           )}
-          {user ? (
-            <div className="flex items-center gap-2 ml-3">
-              {isAdmin && (
-                <Link to="/admin">
-                  <Button variant="gold" size="sm">Admin</Button>
-                </Link>
-              )}
-              <Button variant="ghost" size="sm" onClick={handleSignOut} className="text-navy-foreground/80 hover:text-gold">
-                Sign Out
-              </Button>
-            </div>
-          ) : (
-            <div className="flex items-center gap-2 ml-3">
-              <Link to="/login">
-                <Button variant="ghost" size="sm" className="text-navy-foreground/80 hover:text-gold">
-                  <LogIn className="w-4 h-4 mr-1" /> Login
-                </Button>
-              </Link>
-              <Link to="/register">
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Button variant="gold" size="sm">Register</Button>
-                </motion.div>
-              </Link>
-            </div>
-          )}
         </nav>
 
-        {/* Mobile toggle */}
         <button className="lg:hidden text-navy-foreground" onClick={() => setOpen(!open)} aria-label="Toggle menu">
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile menu */}
       {open && (
         <motion.nav
           initial={{ opacity: 0, y: -10 }}
@@ -133,29 +95,6 @@ const Navbar = () => {
               () => setOpen(false)
             )
           )}
-          <div className="px-6 pt-3 flex gap-2">
-            {user ? (
-              <>
-                {isAdmin && (
-                  <Link to="/admin" onClick={() => setOpen(false)}>
-                    <Button variant="gold" size="sm">Admin</Button>
-                  </Link>
-                )}
-                <Button variant="ghost" size="sm" onClick={() => { handleSignOut(); setOpen(false); }} className="text-navy-foreground/80">
-                  Sign Out
-                </Button>
-              </>
-            ) : (
-              <>
-                <Link to="/login" onClick={() => setOpen(false)}>
-                  <Button variant="ghost" size="sm" className="text-navy-foreground/80">Login</Button>
-                </Link>
-                <Link to="/register" onClick={() => setOpen(false)}>
-                  <Button variant="gold" size="sm">Register</Button>
-                </Link>
-              </>
-            )}
-          </div>
         </motion.nav>
       )}
     </motion.header>
