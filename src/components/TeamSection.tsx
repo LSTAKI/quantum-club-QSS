@@ -96,7 +96,7 @@ const committees: { key: string; label: string; members: CommitteeMember[] }[] =
     key: "transportation",
     label: "Transportation Committee",
     members: [
-      { name: "Transportation Lead", role: "Committee Lead", quote: "Ensuring smooth journeys for all attendees.", image: "https://via.placeholder.com/300x300?text=Trans+Lead" },
+      { name: "Varun K", role: "Committee Lead", quote: "Ensuring smooth journeys for all attendees.", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1773763397/TP-1_xjcnde.jpg", phone: "8217753540", email: "varunkambar75@gmail.com" },
     ],
   },
 ];
