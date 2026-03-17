@@ -11,8 +11,7 @@ const navLinks = [
   { label: "Team", href: "/team", route: "/team" },
   { label: "Schedule", href: "/schedule", route: "/schedule" },
   { label: "FAQ", href: "/faq", route: "/faq" },
-  { label: "Contact", href: "/contact", route: "/contact" },
-];
+  ];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
