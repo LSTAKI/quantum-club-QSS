@@ -1,8 +1,6 @@
 import { useState } from "react";
-import { Menu, X, LogIn } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useLocation, Link, useNavigate } from "react-router-dom";
-import { useAuth } from "@/hooks/useAuth";
+import { Menu, X } from "lucide-react";
+import { useLocation, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const navLinks = [
@@ -19,13 +17,6 @@ const navLinks = [
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
-  const { user, isAdmin, signOut } = useAuth();
-
-  const handleSignOut = async () => {
-    await signOut();
-    navigate("/");
-  };
 
   const isActive = (link: typeof navLinks[0]) => location.pathname === link.route && link.route !== "/";
 
@@ -54,7 +45,6 @@ const Navbar = () => {
         background: "linear-gradient(180deg, hsla(213, 80%, 8%, 0.95), hsla(213, 80%, 10%, 0.9))",
       }}
     >
-      {/* Animated top accent line */}
       <motion.div
         className="absolute top-0 left-0 right-0 h-px"
         style={{
@@ -69,7 +59,6 @@ const Navbar = () => {
           VTU <span className="text-gold">Quantum Club</span>
         </Link>
 
-        {/* Desktop */}
         <nav className="hidden lg:flex items-center gap-1">
           {navLinks.map((l) =>
             renderLink(
@@ -83,13 +72,11 @@ const Navbar = () => {
           )}
         </nav>
 
-        {/* Mobile toggle */}
         <button className="lg:hidden text-navy-foreground" onClick={() => setOpen(!open)} aria-label="Toggle menu">
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile menu */}
       {open && (
         <motion.nav
           initial={{ opacity: 0, y: -10 }}
