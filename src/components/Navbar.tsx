@@ -108,29 +108,6 @@ const Navbar = () => {
               () => setOpen(false)
             )
           )}
-          <div className="px-6 pt-3 flex gap-2">
-            {user ? (
-              <>
-                {isAdmin && (
-                  <Link to="/admin" onClick={() => setOpen(false)}>
-                    <Button variant="gold" size="sm">Admin</Button>
-                  </Link>
-                )}
-                <Button variant="ghost" size="sm" onClick={() => { handleSignOut(); setOpen(false); }} className="text-navy-foreground/80">
-                  Sign Out
-                </Button>
-              </>
-            ) : (
-              <>
-                <Link to="/login" onClick={() => setOpen(false)}>
-                  <Button variant="ghost" size="sm" className="text-navy-foreground/80">Login</Button>
-                </Link>
-                <Link to="/register" onClick={() => setOpen(false)}>
-                  <Button variant="gold" size="sm">Register</Button>
-                </Link>
-              </>
-            )}
-          </div>
         </motion.nav>
       )}
     </motion.header>
