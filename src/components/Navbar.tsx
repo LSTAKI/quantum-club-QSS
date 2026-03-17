@@ -81,31 +81,6 @@ const Navbar = () => {
               }`
             )
           )}
-          {user ? (
-            <div className="flex items-center gap-2 ml-3">
-              {isAdmin && (
-                <Link to="/admin">
-                  <Button variant="gold" size="sm">Admin</Button>
-                </Link>
-              )}
-              <Button variant="ghost" size="sm" onClick={handleSignOut} className="text-navy-foreground/80 hover:text-gold">
-                Sign Out
-              </Button>
-            </div>
-          ) : (
-            <div className="flex items-center gap-2 ml-3">
-              <Link to="/login">
-                <Button variant="ghost" size="sm" className="text-navy-foreground/80 hover:text-gold">
-                  <LogIn className="w-4 h-4 mr-1" /> Login
-                </Button>
-              </Link>
-              <Link to="/register">
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Button variant="gold" size="sm">Register</Button>
-                </motion.div>
-              </Link>
-            </div>
-          )}
         </nav>
 
         {/* Mobile toggle */}
