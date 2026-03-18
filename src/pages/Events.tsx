@@ -34,11 +34,12 @@ const scaleIn = {
 };
 
 const panelists = [
-  { name: "To be updated", affiliation: "To be updated" },
-  { name: "To be updated", affiliation: "To be updated" },
-  { name: "To be updated", affiliation: "To be updated" },
-  { name: "To be updated", affiliation: "To be updated" },
-  { name: "To be updated", affiliation: "To be updated" },
+  { name: "T. S. Mahesh", affiliation: "Professor, Physics (IISER)" },
+  { name: "Shankar Kumar Selvaraja", affiliation: "Professor, Physics (IISER)" },
+  { name: "Prabhu Ramappa", affiliation: "Associate Professor (Physics), Indian Institute of Technology Dharwad" },
+  { name: "Bhawana Rudra", affiliation: "Asst. Professor at National Institute of Technology Karnataka" },
+  { name: "Usha Devi A R", affiliation: "Professor at Bangalore University" },
+  { name: "Dr. Shidaling Matteppanavar", affiliation: "Assistant professor, Department of Physics (KLE's BK College)" },
 ];
 
 const POSTER_REGISTER_URL = "https://konfhub.com/poster";
