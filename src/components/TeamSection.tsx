@@ -23,8 +23,8 @@ const faculty = [
 ];
 
 const clubCoordinators = [
-  { name: "Dr. Prahlad Rathod", role: "Chief Club Coordinator", image: "https://vtu.ac.in/wp-content/uploads/2020/03/pr.png" },
-  { name: "Mr. Arpan Sathapathy", role: "Club Coordinator", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764150594/Arpan_sir_v8oruj.jpg" },
+  { name: "Dr. Prahlad Rathod", role: "Students Club Chief Coordinator", image: "https://vtu.ac.in/wp-content/uploads/2020/03/pr.png" },
+  { name: "Mr. Arpan Sathapathy", role: "Students Club Coordinator", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764150594/Arpan_sir_v8oruj.jpg" },
 ];
 
 const convenors = [
@@ -108,7 +108,7 @@ const committees: { key: string; label: string; members: CommitteeMember[] }[] =
 ];
 
 const developers: (CommitteeMember & { contribution: string; icon: typeof Code })[] = [
-  { name: "Taki Altaf Tajuddin Mulla", role: "Lead Developer", contribution: "Full-stack development & architecture", icon: Code, quote: "Building the digital backbone of Quantum Club.", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764163560/Taki-1_xrbrpz.jpg" },
+  { name: "Taki Altaf Tajuddin Mulla", role: "Lead Developer", contribution: "Full-stack development & architecture", icon: Code, quote: "Building the digital backbone of Quantum Club.", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764163560/Taki-1_xrbrpz.jpg", email: "takimulla2006@gmail.com", linkedin: "https://www.linkedin.com/in/taki-altaf-mulla-ba207b246" },
 ];
 
 // ── Reusable Components ─────────────────────────────────────────────

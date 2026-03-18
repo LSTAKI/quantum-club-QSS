@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Plane, MapPin, ExternalLink } from "lucide-react";
+import { Plane, Train, MapPin, ExternalLink } from "lucide-react";
 import GlowCursor from "@/components/GlowCursor";
 import { FloatingOrb, PulsingDot } from "@/components/TechEffects";
 
@@ -13,9 +13,17 @@ const touristPlaces = [
 
 const travelRoutes = [
   { from: "Goa (Dabolim Airport)", distance: "~190 km", duration: "~4 hrs by road", airlines: "IndiGo, Air India, SpiceJet", airportCode: "GOI" },
+  { from: "Goa (MOPA Airport)", distance: "~190 km", duration: "~4 hrs by road", airlines: "IndiGo, Akasa Air", airportCode: "GOX" },
   { from: "Kolhapur (Kolhapur Airport)", distance: "~120 km", duration: "~2.5 hrs by road", airlines: "IndiGo, Star Air", airportCode: "KLH" },
-  { from: "Belagavi (Sambra Airport)", distance: "~10 km", duration: "~20 min by road", airlines: "IndiGo, Star Air, Alliance Air", airportCode: "IXG" },
-  { from: "Hubli (Hubli Airport)", distance: "~100 km", duration: "~2 hrs by road", airlines: "IndiGo, Star Air, Alliance Air", airportCode: "HBX" },
+  { from: "Belagavi (Sambra Airport)", distance: "~10 km", duration: "~20 min by road", airlines: "IndiGo, Star Air", airportCode: "IXG" },
+  { from: "Hubli (Hubli Airport)", distance: "~100 km", duration: "~2 hrs by road", airlines: "IndiGo, Star Air", airportCode: "HBX" },
+];
+
+const trainRoutes = [
+  { from: "Belagavi", distance: "~9 km from Centre", stationCode: "BGM" },
+  { from: "Hubballi", distance: "~110 km from Centre", stationCode: "UBL" },
+  { from: "Madgaon", distance: "~124 km", stationCode: "MAO" },
+  { from: "Vasco Da Gama", distance: "~135 km", stationCode: "VSG" },
 ];
 
 const BelagaviSection = () => (
@@ -108,7 +116,7 @@ const BelagaviSection = () => (
           className="font-heading text-xl font-semibold text-foreground mb-6 flex items-center gap-2"
         >
           <Plane size={20} className="text-accent" />
-          How to Reach Belagavi
+          How to Reach Belagavi by Flight
         </motion.h3>
         <div className="grid sm:grid-cols-2 gap-5">
           {travelRoutes.map((route, i) => (
@@ -130,6 +138,40 @@ const BelagaviSection = () => (
                 <p><span className="font-medium text-foreground">Distance:</span> {route.distance}</p>
                 <p><span className="font-medium text-foreground">Travel Time:</span> {route.duration}</p>
                 <p><span className="font-medium text-foreground">Airlines:</span> {route.airlines}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Train Routes */}
+      <div className="mt-16">
+        <motion.h3
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="font-heading text-xl font-semibold text-foreground mb-6 flex items-center gap-2"
+        >
+          <Train size={20} className="text-accent" />
+          How to Reach Belagavi by Train
+        </motion.h3>
+        <div className="grid sm:grid-cols-2 gap-5">
+          {trainRoutes.map((route, i) => (
+            <motion.div
+              key={route.from}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.1 }}
+              whileHover={{ y: -4 }}
+              className="rounded-lg p-5 border border-border bg-background hover:border-accent/30 hover:shadow-card transition-all duration-300"
+            >
+              <h4 className="font-heading text-sm font-semibold text-foreground mb-3">
+                {route.from}{" "}
+                <span className="text-accent font-mono text-xs ml-1">({route.stationCode})</span>
+              </h4>
+              <div className="space-y-1.5 text-xs text-muted-foreground">
+                <p><span className="font-medium text-foreground">Distance:</span> {route.distance}</p>
               </div>
             </motion.div>
           ))}

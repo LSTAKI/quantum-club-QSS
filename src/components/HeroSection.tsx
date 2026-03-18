@@ -5,7 +5,7 @@ import ParticleField from "@/components/ParticleField";
 import { GridOverlay, ScanLine, FloatingOrb, TypewriterText } from "@/components/TechEffects";
 
 const HEADLINES = [
-  "Quantum Students Summit",
+  "Quantum Students' Summit",
   "Explore. Innovate. Discover.",
   "The Future is Quantum",
   "Where Science Meets Ambition",
