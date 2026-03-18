@@ -11,7 +11,6 @@ import poster2 from "@/assets/poster-2.jpg";
 import poster3 from "@/assets/poster-3.jpg";
 import plenary1 from "@/assets/plenary-1.jpg";
 import plenary2 from "@/assets/plenary-2.jpg";
-import panelImg from "@/assets/panel-discussion.jpg";
 
 const fadeUp = {
   initial: { opacity: 0, y: 40 },
@@ -32,14 +31,6 @@ const scaleIn = {
   viewport: { once: true, margin: "-50px" } as const,
   transition: { duration: 0.6, ease: "easeOut" as const },
 };
-
-const panelists = [
-  { name: "To be updated", affiliation: "To be updated" },
-  { name: "To be updated", affiliation: "To be updated" },
-  { name: "To be updated", affiliation: "To be updated" },
-  { name: "To be updated", affiliation: "To be updated" },
-  { name: "To be updated", affiliation: "To be updated" },
-];
 
 const POSTER_REGISTER_URL = "https://konfhub.com/poster";
 const QUBITATHON_REGISTER_URL = "https://konfhub.com/qubitathon";
@@ -89,6 +80,45 @@ const Events = () => (
   <div className="min-h-screen">
     <Navbar />
     <EventsHero />
+
+    {/* Plenary Talks */}
+    <section className="relative py-20 md:py-28 bg-background overflow-hidden">
+      <div className="container relative z-10">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <motion.div {...fadeUp}>
+            <motion.p {...staggerItem} className="text-sm font-mono font-semibold tracking-[0.2em] uppercase text-accent mb-3 flex items-center gap-2">
+              <StatusDot /> Keynote
+            </motion.p>
+            <motion.h2
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6"
+            >
+              Plenary Talks
+            </motion.h2>
+            <motion.p {...staggerItem} className="text-muted-foreground leading-relaxed mb-4">
+              Hear from leading experts and distinguished researchers sharing their latest breakthroughs and visions for the future of quantum science. Plenary sessions bring together the brightest minds in the field for talks that inspire and challenge.
+            </motion.p>
+            <motion.p {...staggerItem} className="text-muted-foreground leading-relaxed">
+              These sessions cover grand themes — from the foundations of quantum mechanics to real-world applications in quantum computing, cryptography, and materials science.
+            </motion.p>
+          </motion.div>
+
+          <motion.div {...scaleIn} transition={{ duration: 0.7, delay: 0.2 }} className="grid grid-cols-2 gap-3 h-[360px]">
+            <CyberBorder>
+              <GlowImage src={plenary1} alt="Distinguished speaker lecturing" className="h-full" />
+            </CyberBorder>
+            <CyberBorder>
+              <GlowImage src={plenary2} alt="Expert presenting research" className="h-full" />
+            </CyberBorder>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+
+    <SectionDivider />
 
     {/* Poster Presentations */}
     <section className="relative py-20 md:py-28 bg-background overflow-hidden">
@@ -145,101 +175,7 @@ const Events = () => (
 
     <SectionDivider />
 
-    {/* Plenary Talks */}
-    <section className="relative py-20 md:py-28 bg-background overflow-hidden">
-      <div className="container relative z-10">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <motion.div {...fadeUp}>
-            <motion.p {...staggerItem} className="text-sm font-mono font-semibold tracking-[0.2em] uppercase text-accent mb-3 flex items-center gap-2">
-              <StatusDot /> Keynote
-            </motion.p>
-            <motion.h2
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6"
-            >
-              Plenary Talks
-            </motion.h2>
-            <motion.p {...staggerItem} className="text-muted-foreground leading-relaxed mb-4">
-              Hear from leading experts and distinguished researchers sharing their latest breakthroughs and visions for the future of quantum science. Plenary sessions bring together the brightest minds in the field for talks that inspire and challenge.
-            </motion.p>
-            <motion.p {...staggerItem} className="text-muted-foreground leading-relaxed">
-              These sessions cover grand themes — from the foundations of quantum mechanics to real-world applications in quantum computing, cryptography, and materials science.
-            </motion.p>
-          </motion.div>
 
-          <motion.div {...scaleIn} transition={{ duration: 0.7, delay: 0.2 }} className="grid grid-cols-2 gap-3 h-[360px]">
-            <CyberBorder>
-              <GlowImage src={plenary1} alt="Distinguished speaker lecturing" className="h-full" />
-            </CyberBorder>
-            <CyberBorder>
-              <GlowImage src={plenary2} alt="Expert presenting research" className="h-full" />
-            </CyberBorder>
-          </motion.div>
-        </div>
-      </div>
-    </section>
-
-    <SectionDivider />
-
-    {/* Panel Discussion */}
-    <section className="relative py-20 md:py-28 bg-surface overflow-hidden">
-      <GridOverlay />
-      <div className="container relative z-10">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <motion.div {...scaleIn} className="order-2 md:order-1">
-            <CyberBorder>
-              <GlowImage src={panelImg} alt="Panel discussion at the summit." className="w-full aspect-[4/3]" />
-            </CyberBorder>
-          </motion.div>
-
-          <motion.div {...fadeUp} transition={{ duration: 0.7, delay: 0.15 }} className="order-1 md:order-2">
-            <motion.p {...staggerItem} className="text-sm font-mono font-semibold tracking-[0.2em] uppercase text-accent mb-3 flex items-center gap-2">
-              <StatusDot /> Discussion
-            </motion.p>
-            <motion.h2
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6"
-            >
-              Panel Discussion
-            </motion.h2>
-            <motion.p {...staggerItem} className="text-muted-foreground leading-relaxed mb-4 italic">
-              "Undergraduate Research in India: Purpose, Passion, and the Pursuit of Quantum Science"
-            </motion.p>
-            <motion.p {...staggerItem} className="text-muted-foreground leading-relaxed mb-6">
-              An engaging conversation featuring distinguished panelists from India's premier research institutions exploring the role of undergraduate research in advancing quantum science.
-            </motion.p>
-            <motion.h3 {...staggerItem} className="font-heading text-lg font-semibold text-foreground mb-3">
-              Panelists
-            </motion.h3>
-            <ul className="space-y-2">
-              {panelists.map((p, i) => (
-                <motion.li
-                  key={i}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.1 * i }}
-                  className="flex items-start gap-2 text-sm text-muted-foreground"
-                >
-                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
-                  <span>
-                    <strong className="text-foreground">{p.name}</strong> — {p.affiliation}
-                  </span>
-                </motion.li>
-              ))}
-            </ul>
-          </motion.div>
-        </div>
-      </div>
-    </section>
-
-    <SectionDivider />
 
     {/* Qubitathon */}
     <section className="relative py-20 md:py-28 bg-background overflow-hidden">

@@ -13,7 +13,7 @@ const touristPlaces = [
 
 const travelRoutes = [
   { from: "Goa (Dabolim Airport)", distance: "~190 km", duration: "~4 hrs by road", airlines: "IndiGo, Air India, SpiceJet", airportCode: "GOI" },
-  { from: "Kolhapur (via road)", distance: "~120 km", duration: "~2.5 hrs by road", airlines: "No major airport — connect via Goa or Belagavi", airportCode: "—" },
+  { from: "Kolhapur (Kolhapur Airport)", distance: "~120 km", duration: "~2.5 hrs by road", airlines: "IndiGo, Star Air", airportCode: "KLH" },
   { from: "Belagavi (Sambra Airport)", distance: "~10 km", duration: "~20 min by road", airlines: "IndiGo, Star Air, Alliance Air", airportCode: "IXG" },
   { from: "Hubli (Hubli Airport)", distance: "~100 km", duration: "~2 hrs by road", airlines: "IndiGo, Star Air, Alliance Air", airportCode: "HBX" },
 ];

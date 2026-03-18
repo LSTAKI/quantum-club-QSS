@@ -22,6 +22,19 @@ const faculty = [
   { name: "Dr. Harish B", role: "Faculty Advisor", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764163344/Harish_Sir_3_hbkvpk.jpg" },
 ];
 
+const clubCoordinators = [
+  { name: "Dr. Prahlad Rathod", role: "Chief Club Coordinator", image: "https://vtu.ac.in/wp-content/uploads/2020/03/pr.png" },
+  { name: "Mr. Arpan Sathapathy", role: "Club Coordinator", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764150594/Arpan_sir_v8oruj.jpg" },
+];
+
+const convenors = [
+  { name: "Mr. Karthik Rao R", role: "Chair, Quantum Club & Chief-Convenor", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764170746/karthik_bhai_4_x8awnz.jpg" },
+  { name: "Mr. Kashneet Gowdar ", role: "Summit-Convenor", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1773838293/KS-1_d2y2g1.jpg" },
+  { name: "Ms. Shreya N B", role: "Convenor", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764164447/IMG_my_photo_-_Shreya_N_B-01_jy9tif.jpg" },
+  { name: "Mr. Arun Hikadi", role: "Co-Convenor & Media-Club", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764157705/Arun_H_3_ddcyq1.jpg" },
+  { name: "Ms. Shradha Patil", role: "Co-Convenor", image: "https://via.placeholder.com/300x300?text=Photo+Link" },
+];
+
 const chairperson = {
   name: "KARTHIK RAO R",
   role: "Chairperson, VTU Quantum Club",
@@ -48,13 +61,6 @@ const committees: { key: string; label: string; members: CommitteeMember[] }[] =
     label: "Help Desk Committee",
     members: [
       { name: "Rohit R K", role: "Committee Lead", quote: "Ensuring every attendee has an exceptional experience.", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1773762965/HP-1_dvw3a9.jpg", phone: "7019783403" },
-    ],
-  },
-  {
-    key: "technical",
-    label: "Technical Committee",
-    members: [
-      { name: "Arun Mallikarjun Hikadi", role: "Technical Committee Lead", quote: "Turning complex quantum concepts into hands-on technical experiences.", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764157705/Arun_H_3_ddcyq1.jpg", phone: "8050670161" },
     ],
   },
   {
@@ -102,9 +108,7 @@ const committees: { key: string; label: string; members: CommitteeMember[] }[] =
 ];
 
 const developers: (CommitteeMember & { contribution: string; icon: typeof Code })[] = [
-  { name: "Developer 1", role: "Lead Developer", contribution: "Full-stack development & architecture", icon: Code, quote: "Building the digital backbone of Quantum Club.", image: "https://via.placeholder.com/300x300?text=Dev+1" },
-  { name: "Developer 2", role: "Frontend Developer", contribution: "UI/UX design & animations", icon: Palette, quote: "Crafting immersive experiences pixel by pixel.", image: "https://via.placeholder.com/300x300?text=Dev+2" },
-  { name: "Developer 3", role: "Backend Developer", contribution: "API development & database management", icon: Globe, quote: "Powering the platform behind the scenes.", image: "https://via.placeholder.com/300x300?text=Dev+3" },
+  { name: "Taki Altaf Tajuddin Mulla", role: "Lead Developer", contribution: "Full-stack development & architecture", icon: Code, quote: "Building the digital backbone of Quantum Club.", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764163560/Taki-1_xrbrpz.jpg" },
 ];
 
 // ── Reusable Components ─────────────────────────────────────────────
@@ -226,6 +230,14 @@ const TeamSection = () => {
           </div>
         </div>
 
+        {/* Club Coordinators */}
+        <SectionHeading subtitle="Leading the Vision" title="Club Coordinators" />
+        <div className="grid sm:grid-cols-2 gap-8 max-w-2xl mx-auto mb-20">
+          {clubCoordinators.map((m, i) => (
+            <PersonCard key={m.role} {...m} delay={i * 0.1} />
+          ))}
+        </div>
+
         {/* Faculty */}
         <SectionHeading subtitle="Guiding Forces" title="Faculty" />
         <div className="grid sm:grid-cols-2 gap-8 max-w-2xl mx-auto mb-20">
@@ -234,45 +246,48 @@ const TeamSection = () => {
           ))}
         </div>
 
-        {/* Chairperson */}
-        <SectionHeading subtitle="The Leader" title="Chairperson" />
-        <div className="flex justify-center mb-20">
-          <PersonCard
-            name={chairperson.name}
-            role={chairperson.role}
-            quote={chairperson.quote}
-            image={chairperson.image}
-            size="w-44 h-44"
-            borderColor="border-accent/40"
-            onClick={() => setSelectedMember(chairperson)}
-          />
+        {/* Convenors */}
+        <SectionHeading subtitle="Pillars of Strength" title="Convenors" />
+        <div className="flex flex-col gap-8 max-w-4xl mx-auto mb-20">
+          <div className="flex justify-center flex-wrap gap-8">
+            {convenors.slice(0, 3).map((m, i) => (
+              <PersonCard key={m.name} {...m} delay={i * 0.1} />
+            ))}
+          </div>
+          <div className="flex justify-center flex-wrap gap-8">
+            {convenors.slice(3, 5).map((m, i) => (
+              <PersonCard key={m.name} {...m} delay={(i + 3) * 0.1} />
+            ))}
+          </div>
         </div>
 
         {/* Committees */}
-        {committees.map((committee) => (
-          <div key={committee.key} className="mb-16">
-            <SectionHeading subtitle="Committee" title={committee.label} />
-            <div className={`grid ${committee.members.length === 1 ? "place-items-center" : "sm:grid-cols-2 lg:grid-cols-3"} gap-8 max-w-4xl mx-auto`}>
-              {committee.members.map((m, i) => (
-                <PersonCard
-                  key={m.name}
-                  name={m.name}
-                  role={m.role}
-                  quote={m.quote}
-                  image={m.image}
-                  borderColor="border-accent/20"
-                  delay={i * 0.1}
-                  onClick={() => setSelectedMember(m)}
-                />
-              ))}
+        <div className="grid md:grid-cols-2 gap-x-12 gap-y-16 mb-16">
+          {committees.map((committee) => (
+            <div key={committee.key}>
+              <SectionHeading subtitle="Committee" title={committee.label} />
+              <div className={`grid ${committee.members.length === 1 ? "place-items-center" : "sm:grid-cols-2 lg:grid-cols-3"} gap-8 max-w-4xl mx-auto`}>
+                {committee.members.map((m, i) => (
+                  <PersonCard
+                    key={m.name}
+                    name={m.name}
+                    role={m.role}
+                    quote={m.quote}
+                    image={m.image}
+                    borderColor="border-accent/20"
+                    delay={i * 0.1}
+                    onClick={() => setSelectedMember(m)}
+                  />
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
 
         {/* Developers Section */}
         <div className="mt-8 mb-16">
           <SectionHeading subtitle="Built With ❤️ By" title="Website Developers" />
-          <div className="grid sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div className="flex justify-center gap-8 max-w-4xl mx-auto">
             {developers.map((dev, i) => {
               const Icon = dev.icon;
               return (
