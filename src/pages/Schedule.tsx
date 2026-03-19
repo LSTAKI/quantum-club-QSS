@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import ParticleField from "@/components/ParticleField";
 import GlowCursor from "@/components/GlowCursor";
 import { GridOverlay, ScanLine } from "@/components/TechEffects";
-import { Calendar, Clock, MapPin } from "lucide-react";
+import { Calendar } from "lucide-react";
 
 const defaultSchedule = [
   { id: "1", day_number: 1, title: "Registration & Welcome", description: "Check-in and welcome kit distribution", start_time: "2026-04-16T08:00:00Z", end_time: "2026-04-16T09:00:00Z", location: "Main Hall", display_order: 0 },
@@ -20,8 +20,6 @@ const defaultSchedule = [
   { id: "9", day_number: 2, title: "Valedictory & Awards", description: "Closing ceremony and prize distribution", start_time: "2026-04-17T17:30:00Z", end_time: "2026-04-17T18:30:00Z", location: "Auditorium", display_order: 8 },
 ];
 
-const formatTime = (t: string) =>
-  new Date(t).toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit", hour12: true });
 
 const Schedule = () => {
   const { data: schedule } = useQuery({
@@ -33,7 +31,6 @@ const Schedule = () => {
   });
 
   const items = schedule || defaultSchedule;
-  const days = [...new Set(items.map((s) => s.day_number))].sort();
 
   return (
     <div className="min-h-screen">
@@ -69,7 +66,7 @@ const Schedule = () => {
               </motion.div>
               <h1 className="font-heading text-3xl md:text-4xl font-bold text-foreground">Event Schedule</h1>
               <p className="text-muted-foreground mt-3 font-mono">
-                <span className="text-accent/60">[</span> 16 – 17 April 2026 · Two Days of Quantum Exploration <span className="text-accent/60">]</span>
+                <span className="text-accent/60">[</span> Sequence of Events <span className="text-accent/60">]</span>
               </p>
               <motion.div
                 className="mx-auto mt-4 h-px max-w-[250px]"
@@ -80,78 +77,48 @@ const Schedule = () => {
               />
             </motion.div>
 
-            {days.map((day) => (
-              <div key={day} className="mb-12">
-                <motion.h2
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+            <div className="mb-12">
+              <div className="space-y-4 relative">
+                {/* Animated timeline line */}
+                <motion.div
+                  className="absolute left-5 top-0 bottom-0 w-px"
+                  initial={{ scaleY: 0 }}
+                  whileInView={{ scaleY: 1 }}
                   viewport={{ once: true }}
-                  className="font-heading text-2xl font-bold text-foreground mb-6 flex items-center gap-3"
-                >
-                  <motion.span
-                    className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent font-mono font-bold text-lg border border-accent/20"
-                    whileHover={{ scale: 1.1, borderColor: "hsl(var(--accent) / 0.5)" }}
-                  >
-                    {day}
-                  </motion.span>
-                  Day {day}
-                </motion.h2>
+                  transition={{ duration: 1 }}
+                  style={{ transformOrigin: "top", background: "linear-gradient(180deg, hsl(var(--accent) / 0.5), hsl(var(--accent) / 0.1))" }}
+                />
 
-                <div className="space-y-4 relative">
-                  {/* Animated timeline line */}
+                {items.map((item, i) => (
                   <motion.div
-                    className="absolute left-5 top-0 bottom-0 w-px"
-                    initial={{ scaleY: 0 }}
-                    whileInView={{ scaleY: 1 }}
+                    key={item.id}
+                    initial={{ opacity: 0, x: 30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 1 }}
-                    style={{ transformOrigin: "top", background: "linear-gradient(180deg, hsl(var(--accent) / 0.5), hsl(var(--accent) / 0.1))" }}
-                  />
+                    transition={{ delay: (i % 5) * 0.1 }}
+                    className="relative pl-14"
+                  >
+                    {/* Glowing timeline dot with order number */}
+                    <motion.div
+                      className="absolute left-1.5 top-3.5 w-7 h-7 rounded-full bg-accent border-2 border-background z-10 flex items-center justify-center text-xs font-bold text-accent-foreground"
+                      whileInView={{ boxShadow: ["0 0 0px hsl(var(--accent))", "0 0 8px hsl(var(--accent))", "0 0 0px hsl(var(--accent))"] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    >
+                      {i + 1}
+                    </motion.div>
 
-                  {items
-                    .filter((s) => s.day_number === day)
-                    .map((item, i) => (
-                      <motion.div
-                        key={item.id}
-                        initial={{ opacity: 0, x: 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: i * 0.1 }}
-                        className="relative pl-14"
-                      >
-                        {/* Glowing timeline dot */}
-                        <motion.div
-                          className="absolute left-3.5 top-4 w-3 h-3 rounded-full bg-accent border-2 border-background z-10"
-                          whileInView={{ boxShadow: ["0 0 0px hsl(var(--accent))", "0 0 8px hsl(var(--accent))", "0 0 0px hsl(var(--accent))"] }}
-                          transition={{ duration: 2, repeat: Infinity }}
-                        />
-
-                        <motion.div
-                          className="tech-card rounded-xl p-5"
-                          whileHover={{ x: 4 }}
-                          transition={{ duration: 0.2 }}
-                        >
-                          <h3 className="font-heading font-semibold text-foreground text-lg">{item.title}</h3>
-                          <p className="text-muted-foreground text-sm mt-1">{item.description}</p>
-                          <div className="flex flex-wrap gap-4 mt-3 text-xs font-mono text-muted-foreground">
-                            <span className="flex items-center gap-1">
-                              <Clock className="w-3.5 h-3.5 text-accent" />
-                              {formatTime(item.start_time)}
-                              {item.end_time && ` – ${formatTime(item.end_time)}`}
-                            </span>
-                            {item.location && (
-                              <span className="flex items-center gap-1">
-                                <MapPin className="w-3.5 h-3.5 text-gold" />
-                                {item.location}
-                              </span>
-                            )}
-                          </div>
-                        </motion.div>
-                      </motion.div>
-                    ))}
-                </div>
+                    <motion.div
+                      className="tech-card rounded-xl p-5"
+                      whileHover={{ x: 4 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <h3 className="font-heading font-semibold text-foreground text-lg">{item.title}</h3>
+                      <p className="text-muted-foreground text-sm mt-1">{item.description}</p>
+                    </motion.div>
+                  </motion.div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </section>
       </div>

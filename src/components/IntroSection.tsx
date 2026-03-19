@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import introImage from "@/assets/intro-image.jpg";
+const introImage = "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80";
 import GlowCursor from "@/components/GlowCursor";
 import { CyberBorder, FloatingOrb, PulsingDot } from "@/components/TechEffects";
 

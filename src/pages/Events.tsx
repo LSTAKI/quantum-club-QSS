@@ -6,11 +6,11 @@ import EventsHero from "@/components/EventsHero";
 import GlowCursor from "@/components/GlowCursor";
 import { GridOverlay, CyberBorder } from "@/components/TechEffects";
 
-import poster1 from "@/assets/poster-1.jpg";
-import poster2 from "@/assets/poster-2.jpg";
-import poster3 from "@/assets/poster-3.jpg";
-import plenary1 from "@/assets/plenary-1.jpg";
-import plenary2 from "@/assets/plenary-2.jpg";
+const poster1 = "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80";
+const poster2 = "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80";
+const poster3 = "https://images.unsplash.com/photo-1540317580384-e5d43616b9aa?auto=format&fit=crop&q=80";
+const plenary1 = "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80";
+const plenary2 = "https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&q=80";
 
 const fadeUp = {
   initial: { opacity: 0, y: 40 },

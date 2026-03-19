@@ -286,7 +286,7 @@ const TeamSection = () => {
 
         {/* Developers Section */}
         <div className="mt-8 mb-16">
-          <SectionHeading subtitle="Built With ❤️ By" title="Website Developers" />
+          <SectionHeading subtitle="Built With ❤️ By" title="Developer" />
           <div className="flex justify-center gap-8 max-w-4xl mx-auto">
             {developers.map((dev, i) => {
               const Icon = dev.icon;
