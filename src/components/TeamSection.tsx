@@ -60,7 +60,7 @@ const committees: { key: string; label: string; members: CommitteeMember[] }[] =
     key: "helpdesk",
     label: "Help Desk Committee",
     members: [
-      { name: "Rohit R K", role: "Committee Lead", quote: "Ensuring every attendee has an exceptional experience.", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1773762965/HP-1_dvw3a9.jpg", phone: "7019783403" },
+      { name: "Payal Dubey", role: "Committee Lead", quote: "Ensuring every attendee has an exceptional experience.", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1773986192/PA-1_pvqplj.jpg", phone: "8299849730" },
     ],
   },
   {
@@ -263,8 +263,11 @@ const TeamSection = () => {
 
         {/* Committees */}
         <div className="grid md:grid-cols-2 gap-x-12 gap-y-16 mb-16">
-          {committees.map((committee) => (
-            <div key={committee.key}>
+          {committees.map((committee, index) => (
+            <div
+              key={committee.key}
+              className={index === committees.length - 1 && committees.length % 2 !== 0 ? "md:col-span-2" : ""}
+            >
               <SectionHeading subtitle="Committee" title={committee.label} />
               <div className={`grid ${committee.members.length === 1 ? "place-items-center" : "sm:grid-cols-2 lg:grid-cols-3"} gap-8 max-w-4xl mx-auto`}>
                 {committee.members.map((m, i) => (
