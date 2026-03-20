@@ -1,14 +1,7 @@
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 
-const defaultSponsors = [
-  { id: "1", name: "QuantumTech Labs", description: "Leading quantum computing research lab", logo_url: "", website_url: "#", tier: "platinum", display_order: 0 },
-  { id: "2", name: "National Science Foundation", description: "Supporting scientific research nationwide", logo_url: "", website_url: "#", tier: "gold", display_order: 1 },
-  { id: "3", name: "Google Quantum AI", description: "Advancing quantum computing research", logo_url: "", website_url: "#", tier: "gold", display_order: 2 },
-  { id: "4", name: "Microsoft Azure Quantum", description: "Cloud quantum computing platform", logo_url: "", website_url: "#", tier: "silver", display_order: 3 },
-  { id: "5", name: "DST India", description: "Department of Science & Technology", logo_url: "", website_url: "#", tier: "silver", display_order: 4 },
-  { id: "6", name: "Qiskit Community", description: "Open-source quantum development", logo_url: "", website_url: "#", tier: "partner", display_order: 5 },
-];
+const defaultSponsors: any[] = [];
 
 const tierColors: Record<string, string> = {
   title: "border-gold bg-gold/5",
@@ -38,35 +31,41 @@ const SponsorsSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {items.map((sponsor, i) => (
-            <motion.a
-              key={sponsor.id}
-              href={sponsor.website_url || "#"}
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-              whileHover={{ scale: 1.03, y: -4 }}
-              className={`block rounded-xl border-2 p-6 transition-shadow hover:shadow-card-hover ${tierColors[sponsor.tier] || tierColors.partner}`}
-            >
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-xs font-semibold uppercase tracking-wider text-accent">
-                  {sponsor.tier}
-                </span>
-                <ExternalLink className="w-4 h-4 text-muted-foreground" />
-              </div>
-              {sponsor.logo_url ? (
-                <img src={sponsor.logo_url} alt={sponsor.name} className="h-12 object-contain mb-3" />
-              ) : (
-                <h3 className="font-heading text-lg font-bold text-foreground mb-2">{sponsor.name}</h3>
-              )}
-              <p className="text-sm text-muted-foreground leading-relaxed">{sponsor.description}</p>
-            </motion.a>
-          ))}
-        </div>
+        {items.length > 0 ? (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {items.map((sponsor, i) => (
+              <motion.a
+                key={sponsor.id}
+                href={sponsor.website_url || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                whileHover={{ scale: 1.03, y: -4 }}
+                className={`block rounded-xl border-2 p-6 transition-shadow hover:shadow-card-hover ${tierColors[sponsor.tier] || tierColors.partner}`}
+              >
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-accent">
+                    {sponsor.tier}
+                  </span>
+                  <ExternalLink className="w-4 h-4 text-muted-foreground" />
+                </div>
+                {sponsor.logo_url ? (
+                  <img src={sponsor.logo_url} alt={sponsor.name} className="h-12 object-contain mb-3" />
+                ) : (
+                  <h3 className="font-heading text-lg font-bold text-foreground mb-2">{sponsor.name}</h3>
+                )}
+                <p className="text-sm text-muted-foreground leading-relaxed">{sponsor.description}</p>
+              </motion.a>
+            ))}
+          </div>
+        ) : (
+          <p className="text-center text-muted-foreground text-lg py-12">
+            To be updated
+          </p>
+        )}
       </div>
     </section>
   );

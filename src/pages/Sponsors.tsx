@@ -3,14 +3,7 @@ import { ExternalLink } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const defaultSponsors = [
-  { id: "1", name: "QuantumTech Labs", description: "Leading quantum computing research lab", logo_url: "", website_url: "#", tier: "platinum", display_order: 0 },
-  { id: "2", name: "National Science Foundation", description: "Supporting scientific research nationwide", logo_url: "", website_url: "#", tier: "gold", display_order: 1 },
-  { id: "3", name: "Google Quantum AI", description: "Advancing quantum computing research", logo_url: "", website_url: "#", tier: "gold", display_order: 2 },
-  { id: "4", name: "Microsoft Azure Quantum", description: "Cloud quantum computing platform", logo_url: "", website_url: "#", tier: "silver", display_order: 3 },
-  { id: "5", name: "DST India", description: "Department of Science & Technology", logo_url: "", website_url: "#", tier: "silver", display_order: 4 },
-  { id: "6", name: "Qiskit Community", description: "Open-source quantum development", logo_url: "", website_url: "#", tier: "partner", display_order: 5 },
-];
+const defaultSponsors: any[] = [];
 
 const tierOrder = ["title", "platinum", "gold", "silver", "partner"];
 
@@ -59,15 +52,9 @@ const Sponsors = () => {
             </p>
           </motion.div>
 
-          {isLoading && (
-            <div className="flex items-center justify-center py-20">
-              <div className="animate-spin w-8 h-8 border-4 border-accent border-t-transparent rounded-full" />
-            </div>
-          )}
-
-          {!isLoading && (!sponsors || sponsors.length === 0) && (
-            <p className="text-center text-muted-foreground py-20">
-              Sponsors will be announced soon. Stay tuned!
+          {(!sponsors || sponsors.length === 0) && (
+            <p className="text-center text-muted-foreground text-lg py-20">
+              To be updated
             </p>
           )}
 
