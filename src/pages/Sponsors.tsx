@@ -1,9 +1,16 @@
-import { useQuery } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+
+const defaultSponsors = [
+  { id: "1", name: "QuantumTech Labs", description: "Leading quantum computing research lab", logo_url: "", website_url: "#", tier: "platinum", display_order: 0 },
+  { id: "2", name: "National Science Foundation", description: "Supporting scientific research nationwide", logo_url: "", website_url: "#", tier: "gold", display_order: 1 },
+  { id: "3", name: "Google Quantum AI", description: "Advancing quantum computing research", logo_url: "", website_url: "#", tier: "gold", display_order: 2 },
+  { id: "4", name: "Microsoft Azure Quantum", description: "Cloud quantum computing platform", logo_url: "", website_url: "#", tier: "silver", display_order: 3 },
+  { id: "5", name: "DST India", description: "Department of Science & Technology", logo_url: "", website_url: "#", tier: "silver", display_order: 4 },
+  { id: "6", name: "Qiskit Community", description: "Open-source quantum development", logo_url: "", website_url: "#", tier: "partner", display_order: 5 },
+];
 
 const tierOrder = ["title", "platinum", "gold", "silver", "partner"];
 
@@ -24,17 +31,8 @@ const tierStyles: Record<string, string> = {
 };
 
 const Sponsors = () => {
-  const { data: sponsors, isLoading } = useQuery({
-    queryKey: ["sponsors"],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from("sponsors")
-        .select("*")
-        .order("display_order", { ascending: true });
-      if (error) throw error;
-      return data;
-    },
-  });
+  const sponsors = defaultSponsors;
+  const isLoading = false;
 
   const activeTiers = tierOrder.filter((tier) =>
     sponsors?.some((s) => s.tier.toLowerCase() === tier)

@@ -1,6 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
-import { supabase } from "@/integrations/supabase/client";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -16,13 +14,7 @@ const defaultFaqs = [
 ];
 
 const FAQ = () => {
-  const { data: faqs } = useQuery({
-    queryKey: ["faqs"],
-    queryFn: async () => {
-      const { data } = await supabase.from("faqs").select("*").order("display_order");
-      return data && data.length > 0 ? data : defaultFaqs;
-    },
-  });
+  const faqs = defaultFaqs;
 
   return (
     <div className="min-h-screen">
@@ -56,7 +48,7 @@ const FAQ = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
             >
               <Accordion type="single" collapsible className="space-y-3">
-                {(faqs || defaultFaqs).map((faq, i) => (
+                {faqs.map((faq, i) => (
                   <motion.div
                     key={faq.id}
                     initial={{ opacity: 0, x: -20 }}

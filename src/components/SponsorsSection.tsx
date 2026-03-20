@@ -1,6 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
-import { supabase } from "@/integrations/supabase/client";
 import { ExternalLink } from "lucide-react";
 
 const defaultSponsors = [
@@ -21,15 +19,7 @@ const tierColors: Record<string, string> = {
 };
 
 const SponsorsSection = () => {
-  const { data: sponsors } = useQuery({
-    queryKey: ["sponsors"],
-    queryFn: async () => {
-      const { data } = await supabase.from("sponsors").select("*").order("display_order");
-      return data && data.length > 0 ? data : defaultSponsors;
-    },
-  });
-
-  const items = sponsors || defaultSponsors;
+  const items = defaultSponsors;
 
   return (
     <section id="sponsors" className="py-20 md:py-28 bg-surface">

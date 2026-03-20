@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Linkedin } from "lucide-react";
-import { useQuery } from "@tanstack/react-query";
-import { supabase } from "@/integrations/supabase/client";
+
 import ParticleField from "@/components/ParticleField";
 import GlowCursor from "@/components/GlowCursor";
 import { GridOverlay, CyberBorder } from "@/components/TechEffects";
@@ -16,15 +15,7 @@ const defaultSpeakers = [
 ];
 
 const SpeakersSection = () => {
-  const { data: speakers } = useQuery({
-    queryKey: ["speakers"],
-    queryFn: async () => {
-      const { data } = await supabase.from("speakers").select("*").order("display_order");
-      return data && data.length > 0 ? data : defaultSpeakers;
-    },
-  });
-
-  const items = speakers || defaultSpeakers;
+  const items = defaultSpeakers;
 
   return (
     <section className="relative py-20 md:py-28 bg-background overflow-hidden">

@@ -1,6 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
-import { supabase } from "@/integrations/supabase/client";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ParticleField from "@/components/ParticleField";
@@ -22,15 +20,7 @@ const defaultSchedule = [
 
 
 const Schedule = () => {
-  const { data: schedule } = useQuery({
-    queryKey: ["schedule"],
-    queryFn: async () => {
-      const { data } = await supabase.from("schedule").select("*").order("day_number").order("display_order");
-      return data && data.length > 0 ? data : defaultSchedule;
-    },
-  });
-
-  const items = schedule || defaultSchedule;
+  const items = defaultSchedule;
 
   return (
     <div className="min-h-screen">
