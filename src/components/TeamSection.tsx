@@ -32,7 +32,7 @@ const convenors = [
   { name: "Mr. Kashneet Gowdar ", role: "Summit-Convenor", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1773838293/KS-1_d2y2g1.jpg" },
   { name: "Ms. Shreya N B", role: "Convenor", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764164447/IMG_my_photo_-_Shreya_N_B-01_jy9tif.jpg" },
   { name: "Mr. Arun Hikadi", role: "Co-Convenor & Media-Club", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1764157705/Arun_H_3_ddcyq1.jpg" },
-  { name: "Ms. Shradha Patil", role: "Co-Convenor", image: "https://via.placeholder.com/300x300?text=Photo+Link" },
+  { name: "Ms. Shradha Patil", role: "Co-Convenor", image: "https://res.cloudinary.com/dmzliau0j/image/upload/v1773982793/CON-1_f9a4x2.jpg" },
 ];
 
 const chairperson = {

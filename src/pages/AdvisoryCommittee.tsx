@@ -22,6 +22,7 @@ const committeeMembers = [
   { name: "Dr. Nagraj S. Patil", role: "Chairperson Dept. of Civil Engg." },
   { name: "Dr. Babureddy", role: "Chairperson Dept. of Mech. Engg." },
   { name: "Dr. Mahantesh N. Birje", role: "Professor in Dept. of CS&E." },
+  { name: "Dr. Roopa J", role: "Technology Manager-Post-Doc [CeNSE, IISc, Bengaluru]. Asst.Professor, RV College of Engineering, Bengaluru" },
 ];
 
 const AdvisoryCommittee = () => {

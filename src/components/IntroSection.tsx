@@ -1,13 +1,52 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { X } from "lucide-react";
 const introImage = "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80";
 import GlowCursor from "@/components/GlowCursor";
 import { CyberBorder, FloatingOrb, PulsingDot } from "@/components/TechEffects";
 
-const REGISTER_URL = "https://konfhub.com/quantum-student-summit";
+const RegistrationModal = ({ onClose }: { onClose: () => void }) => (
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm p-4"
+    onClick={onClose}
+  >
+    <motion.div
+      initial={{ scale: 0.9, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      exit={{ scale: 0.9, opacity: 0 }}
+      className="relative bg-card rounded-2xl border border-border/50 shadow-card-hover p-2 w-full max-w-3xl h-[85vh] md:h-[800px] flex flex-col overflow-hidden"
+      onClick={(e) => e.stopPropagation()}
+    >
+      <div className="flex justify-end p-2 pb-0">
+        <button onClick={onClose} className="p-1 rounded-full bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors">
+          <X className="w-5 h-5" />
+        </button>
+      </div>
+      <div className="flex-1 w-full overflow-hidden mt-2 rounded-lg">
+        <iframe 
+          src="https://docs.google.com/forms/d/e/1FAIpQLSffNY_tcZ6BwnnEdPIMYGqTig-IUj9XG83pJ4nlq6zE5nFpcg/viewform?embedded=true" 
+          width="100%" 
+          height="100%" 
+          frameBorder="0" 
+          marginHeight={0} 
+          marginWidth={0}
+        >
+          Loading…
+        </iframe>
+      </div>
+    </motion.div>
+  </motion.div>
+);
 
-const IntroSection = () => (
-  <section id="about" className="py-24 bg-background relative overflow-hidden">
+const IntroSection = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  return (
+    <section id="about" className="py-24 bg-background relative overflow-hidden">
     <GlowCursor color="0, 164, 220" />
     <FloatingOrb size={250} color="accent" position="top-left" delay={1} />
     <FloatingOrb size={200} color="gold" position="bottom-left" delay={4} />
@@ -42,12 +81,11 @@ const IntroSection = () => (
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            className="inline-block"
           >
-            <a href={REGISTER_URL} target="_blank" rel="noopener noreferrer">
-              <Button variant="gold" size="lg">
-                Register Now
-              </Button>
-            </a>
+            <Button variant="gold" size="lg" onClick={() => setIsModalOpen(true)}>
+              Register Now
+            </Button>
           </motion.div>
         </motion.div>
 
@@ -88,7 +126,12 @@ const IntroSection = () => (
         </motion.div>
       </div>
     </div>
-  </section>
-);
+
+      <AnimatePresence>
+        {isModalOpen && <RegistrationModal onClose={() => setIsModalOpen(false)} />}
+      </AnimatePresence>
+    </section>
+  );
+};
 
 export default IntroSection;
